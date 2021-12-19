@@ -1,0 +1,160 @@
+<html>
+  <head>
+  	<style>
+  	.img-hor {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+	}
+  	</style>
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.0.1"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>    
+    <script src="https://rawgit.com/ngokevin/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
+
+	<!-- For Cursor -->
+	<script>
+		function hover(ele) {
+			var id = ele.id;
+			console.log('area element id = ' + id);
+			document.querySelector('#ring2').emit('click');
+			document.querySelector('#ring21').emit('click');
+			document.querySelector('#ring3').emit('click');
+			}
+    </script>
+
+	<script>
+	function leave(ele) {
+		var id = ele.id;
+		console.log('leave id = ' + id);
+		document.querySelector('#ring2').emit('done');
+		document.querySelector('#ring21').emit('done');
+		document.querySelector('#ring3').emit('done');
+		}
+    </script>
+	<!-- For Cursor Ends -->
+
+	<script>
+	function linking(ele) {
+		var id = ele.id;
+		console.log('area element id = ' + id);
+		if (id=='shorthome')
+			window.location.href="vr.html";
+		else if (id=='shortacademics')
+			window.location.href="academics.html";
+		else if (id=='shortpub')
+			window.location.href="publications.html";
+//			window.location.href="../ComingSoon.html";
+		else if (id=='shortwork')
+			window.location.href="work.html";
+		else if (id=='shortproject')
+			window.location.href="projects.html";
+		else if (id=='LinkedIn')
+			window.location.href="https://in.linkedin.com/in/akshay-dhamija-a8295025";
+		else if (id=='xvr')
+			window.location.href="index.html";
+		else if (id=='games')
+			window.location.href="../ComingSoon.html";
+                else if (id=='resume')
+                        window.location.href="Projects/Resume.pdf";
+
+		}
+    </script>
+
+  </head>
+  <body>
+    <a-scene>
+		<a-sky id="image-360" src="Images/sky5.jpg"></a-sky>
+      <a-assets>
+		<img id="sky5" crossorigin="anonymous" src="Images/sky5.jpg">
+      	<img id="profile" src="Images/profile.png">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <script id="link" type="text/nunjucks">
+          <a-plane class="link" height="1" width="1"
+            material="shader: flat; transparent:true; src: {{ thumb }}"
+            update-raycaster="#cursor"></a-plane>
+        </script>
+		<script id="short" type="text/nunjucks">
+          <a-plane class="short" height="1" width="1"
+            material="shader: flat; transparent:true; src: {{ thumb }}"
+            sound="on: click; src: #click-sound"
+            update-raycaster="#cursor"></a-plane>
+        </script>
+
+	<!-- Shortcut Images -->		
+		<img id="shortacademics" crossorigin="anonymous" src="Images/academics.png">
+		<img id="shortpub" crossorigin="anonymous" src="Images/publications.png">
+		<img id="shortwork" crossorigin="anonymous" src="Images/work.png">
+		<img id="shortproject" crossorigin="anonymous" src="Images/project.png">
+		<img id="shorthome" crossorigin="anonymous" src="Images/home.png">
+
+		<img id="LinkedIn" crossorigin="anonymous" src="Images/LinkedIn.png">
+		<img id="xvr" crossorigin="anonymous" src="Images/xvr.png">
+		<img id="games" crossorigin="anonymous" src="Images/game.png">
+                <img id="resume" crossorigin="anonymous" src="Images/resume.png">
+	<!-- Shortcut Images End -->		
+
+      </a-assets>
+
+		<a-entity id="intro" position="-2.5 -1.5 -3" bmfont-text="color: #333; align:center; width:1000; text: As of Spring 2017, I am a Research Assistant at the Vision And Security Technology (VAST) Lab and pursuing a Masters in Department of Computer Science at the University of Colorado at Colorado Springs. My research is focused towards Deep Learning for Computer Vision and have a keen interest in areas of Augmented Reality, Social VR and 3D reconstruction;"></a-entity>
+<!-- Previously, I worked as a Project Consultant for a Healthcare Technology startup MphRx -->
+       	<a-entity id="profile" template="src: #link" data-thumb="#profile" position="0 0.5 -3"></a-entity>
+
+<!--		<a-entity look-at="#camera" id="academics" position="1.75 0.65 -3" bmfont-text="text: Academics; color: #333; align:center; width:500;"></a-entity>
+		<a-entity look-at="#camera" id="pub" position="1.75 -1 -3" bmfont-text="text: Publications; color: #333; align:center; width:500;"></a-entity>
+		<a-entity look-at="#camera" id="work" position="-5.35 1 -3" bmfont-text="text: Experience; color: #333; align:center; width:500;"></a-entity>
+		<a-entity look-at="#camera" id="projects" position="-5.25 -1.25 -3" bmfont-text="text: Projects; color: #333; align:center; width:500;"></a-entity>
+-->
+       	<a-entity look-at="#camera" id="shortacademics" position="3.5 1.25 -3" template="src: #short" data-thumb="#shortacademics" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+       	<a-entity look-at="#camera" id="shortpub" position="3.5 -0.5 -3" template="src: #short" data-thumb="#shortpub" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+       	<a-entity look-at="#camera" id="shortwork" position="-3.5 1.25 -3" template="src: #short" data-thumb="#shortwork" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+       	<a-entity look-at="#camera" id="shortproject" position="-3.5 -0.5 -3" template="src: #short" data-thumb="#shortproject" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+
+       	<a-entity look-at="#camera" id="LinkedIn" position="-3 -2.5 -3" template="src: #short" data-thumb="#LinkedIn" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+       	<a-entity look-at="#camera" id="xvr" position="3 -2.5 -3" template="src: #short" data-thumb="#xvr" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+       	<a-entity look-at="#camera" id="games" position="-1 -2.5 -3" template="src: #short" data-thumb="#games" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+        <a-entity look-at="#camera" id="resume" position="1 -2.5 -3" template="src: #short" data-thumb="#resume" onclick="linking(this)" onmouseenter="hover(this)" onmouseleave="leave(this)"></a-entity>
+
+<!--		<a-entity look-at="#camera" id="LinkedIn" position="-4.5 -4 -3" bmfont-text="text: LinkedIn; color: #333; align:center; width:500;"></a-entity>
+		<a-entity look-at="#camera" id="xvr" position="1.5 -2.5 -3" bmfont-text="text: Quit VR; color: #333; align:center; width:500;"></a-entity>
+		<a-entity id="games" position="-1.25 -3.5 -3" bmfont-text="text: Games; color: #333; align:center; width:500;"></a-entity>
+-->
+
+
+		<!-- Cursor -->
+		<a-entity camera id="camera" position="0 0 0" look-controls> 
+			<a-entity id="cursor" cursor="fuse: true; fuseTimeout: 3000; maxDistance: 0.5"
+  				raycaster="objects: .link,.short"
+	            geometry="primitive: ring;radiusInner: 0.095; radiusOuter: 0.1;"
+    	        material="color: black; shader: flat">
+				<!-- Inner rings -->
+	  			<a-ring id="ring1" color="#ef338f" radius-inner="0.09" radius-outer="0.095" position="0 0 -0.5" theta-start=180 theta-length=90>
+    	    		<a-animation easing="ease-in" attribute="theta-start" fill="forwards" from="180" to="360" dur="1500" repeat="indefinite"></a-animation>
+				</a-ring>
+		  		<a-ring id="ring11" color="#ef338f" radius-inner="0.09" radius-outer="0.095" position="0 0 -0.5" theta-start=0 theta-length=90>
+    		    	<a-animation easing="ease-in" attribute="theta-start" fill="forwards" from="0" to="180" dur="1500" repeat="indefinite"></a-animation>
+				</a-ring>
+
+				<!-- Outer rings -->
+		  		<a-ring id="ring2" color="#ef338f" radius-inner="0.115" radius-outer="0.12" position="0 0 -0.5" theta-start=90 theta-length=90>
+    		    	<a-animation easing="ease-in" attribute="theta-start" fill="forwards" from="180" to="0" dur="1500" repeat="indefinite"></a-animation>
+				</a-ring>
+		  		<a-ring id="ring21" color="#ef338f" radius-inner="0.115" radius-outer="0.12" position="0 0 -0.5" theta-start=270 theta-length=90>
+    		    	<a-animation easing="ease-in" attribute="theta-start" fill="forwards" from="360" to="180" dur="1500" repeat="indefinite"></a-animation>
+				</a-ring>
+		
+				<!-- Filler Ring  #357cfe #52fe76 -->
+				<a-ring id="ring3" color="#ef0002" radius-inner="0.1" radius-outer="0.11" position="0 0 -0.5" theta-start=0 theta-length=0>
+    		    	<a-animation begin="click" end="done" easing="ease-in" attribute="theta-length" fill="forwards" from="0" to="360" dur="3000"></a-animation>
+				</a-ring>
+			</a-entity>
+		</a-entity>
+		<!-- Cursor Ends -->
+
+	</a-scene>
+  </body>
+</html>
