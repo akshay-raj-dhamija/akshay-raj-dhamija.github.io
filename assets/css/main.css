@@ -2840,9 +2840,13 @@ input, select, textarea {
 							color: #4acaa8 !important;
 						}
 
-					#header > nav ul li:first-child {
-						border-top: 0;
-					}
+				#header > nav ul li:first-child {
+					border-top: 0;
+				}
+
+				#header > nav ul li:last-child {
+					border-bottom: solid 2px #5ccfb1;
+				}
 
 /* Wrapper */
 
