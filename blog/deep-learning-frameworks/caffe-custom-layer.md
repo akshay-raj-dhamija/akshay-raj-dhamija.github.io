@@ -81,9 +81,9 @@ $$ \frac {\partial xt}{\partial x} - \frac {\partial x}{\partial x} - \frac {\pa
 Applying $\frac {\partial \log {x}}{\partial x}=\frac{1}{x}$ and chain rule
 $$ t - 1 - \frac {1}{1+e^{-x}} * \frac {\partial}{\partial x}{({1+e^{-x}})}$$
 $$ t - 1 - \frac {1}{1+e^{-x}} * \frac {\partial}{\partial x}{({e^{-x}})}$$
-$$ t - 1 + \frac {{e^{-x}}}{1+e^{-x}}$$
+$$ t - 1 + \frac {e^{-x}}{1+e^{-x}}$$
 Rearranging above equation
-$$ t + \frac {{e^{-x}}}{1+e^{-x}} - 1$$
+$$ t + \frac {e^{-x}}{1+e^{-x}} - 1$$
 $$ t + \frac {e^{-x}-1-e^{-x}}{1+e^{-x}}$$
 $$ t - \frac {1}{1+e^{-x}}$$
 The above fraction is equal to the `Sigmoid` function `S` used in the begining of the post
@@ -95,9 +95,9 @@ $$ \frac {\partial xt}{\partial x} - \frac {\partial}{\partial x}\Big({\ln\ ({1+
 Applying $\frac {\partial \log {x}}{\partial x}=\frac{1}{x}$ and chain rule
 $$ t - \frac {1}{1+e^{x}} * \frac {\partial}{\partial x}{({1+e^{x}})}$$
 $$ t - \frac {1}{1+e^{x}} * \frac {\partial}{\partial x}{({e^{x}})}$$
-$$ t - \frac {{e^{x}}}{1+e^{x}}$$
+$$ t - \frac {e^{x}}{1+e^{x}}$$
 Multiplying both numerator and denominator with $e^{-x}$
-$$ t - \frac {{e^{x}*e^{-x}}}{(1+e^{x})(e^{-x})}$$
+$$ t - \frac {e^{x}*e^{-x}}{(1+e^{x})(e^{-x})}$$
 $$ t - \frac {1}{1+e^{-x}}$$
 As for equation $(1)$, the above fraction is equals to the `Sigmoid` function `S`
 $$ t - S$$

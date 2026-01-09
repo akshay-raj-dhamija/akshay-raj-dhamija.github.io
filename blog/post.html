@@ -197,7 +197,15 @@
 						});
 						
 						// Render markdown to HTML
-						const html = marked.parse(markdown);
+						let html = marked.parse(markdown);
+						
+						// Fix image paths - convert relative paths to be relative to blog directory
+						// Handle both ../Images/ and Images/ patterns
+						html = html.replace(/src="\.\.\/Images\//g, 'src="Images/');
+						html = html.replace(/src="Images\//g, 'src="Images/');
+						html = html.replace(/href="\.\.\/Images\//g, 'href="Images/');
+						html = html.replace(/href="Images\//g, 'href="Images/');
+						
 						document.getElementById('markdown-content').innerHTML = html;
 						
 						// Update page title if h1 exists
