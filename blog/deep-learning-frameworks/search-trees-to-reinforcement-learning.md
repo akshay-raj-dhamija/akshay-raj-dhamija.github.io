@@ -128,19 +128,19 @@ Unlike DFS, BFS can still navigate an infinite search tree when the goal is to f
 
 #### Time Complexity
 
-If the problem was to explore the entire search tree (i.e. a problem like backtracking), both DFS and BFS will have the same time complexity since they will be expanding all the nodes in the search tree (considering that the tree is not infinite or cyclic). This time complexity will be \(b^m\), where \(b\) is the average number of successors for each node and \(m\) is the total number of levels in the tree.
+If the problem was to explore the entire search tree (i.e. a problem like backtracking), both DFS and BFS will have the same time complexity since they will be expanding all the nodes in the search tree (considering that the tree is not infinite or cyclic). This time complexity will be $\(b^m\)$, where $\(b\)$ is the average number of successors for each node and $\(m\)$ is the total number of levels in the tree.
 
 #### Space Complexity
 
 While the time complexity of both DFS and BFS is the same, they have vastly different space complexity:
-- **DFS**: \(O(bm)\)
-- **BFS**: \(O(b^m)\)
+- **DFS**: $\(O(bm)\)$
+- **BFS**: $\(O(b^m)\)$
 
 This space complexity difference is a big reason for using DFS over BFS when implemented on edge devices like robot vacuum cleaners.
 
-**DFS Space Complexity Explanation**: At the first search tier, DFS will see \(b\) possible branches, from which it will be expanding one branch, while keeping \((b-1)\) branches in memory. At tier 2 it will have \((b-1)\) branches for the node at tier 2, while also holding \((b-1)\) from the first tier. Assuming \(b_1 = b_2\) we have \(2 \times (b - 1)\), generalizing this further to the \(m\)th level we get \(O(mb)\) as the space complexity.
+**DFS Space Complexity Explanation**: At the first search tier, DFS will see $\(b\)$ possible branches, from which it will be expanding one branch, while keeping $\((b-1)\)$ branches in memory. At tier 2 it will have $\((b-1)\)$ branches for the node at tier 2, while also holding $\((b-1)\)$ from the first tier. Assuming $\(b_1 = b_2\)$ we have $\(2 \times (b - 1)\)$, generalizing this further to the $\(m\)$th level we get $\(O(mb)\)$ as the space complexity.
 
-**BFS Space Complexity Explanation**: At the first search tier, BFS will see \(b\) possible branches. So at the 1st tier BFS will have \(b\) nodes in memory. At tier 2 it expands each of the \(b\) states/nodes into their respective \(b\) successors each. This means at tier 2 it has \(b^2\) nodes in memory. Generalizing this further to the \(m\)th tier we get \(O(b^m)\) as the space complexity.
+**BFS Space Complexity Explanation**: At the first search tier, BFS will see $\(b\)$ possible branches. So at the 1st tier BFS will have $\(b\)$ nodes in memory. At tier 2 it expands each of the $\(b\)$ states/nodes into their respective $\(b\)$ successors each. This means at tier 2 it has $\(b^2\)$ nodes in memory. Generalizing this further to the $\(m\)$th tier we get $\(O(b^m)\)$ as the space complexity.
 
 ### 2.4 Uniform Cost Search (UCS)
 
@@ -150,7 +150,7 @@ While both DFS and BFS are able to find a path from a start state to the goal st
 
 **Optimality**: UCS is able to provide the optimal path from the start to the goal state.
 
-**Complexity**: The space and time complexity of UCS is similar to those of BFS. If \(b\) is the number of branches from a state and let's assume the goal state to have a minimum cost \(C^*\) associated with it, with the minimum cost from any pair of states to be \(\epsilon\), then both the space and time complexity of UCS can be given as \(O(b^{C^*/\epsilon})\).
+**Complexity**: The space and time complexity of UCS is similar to those of BFS. If $\(b\)$ is the number of branches from a state and let's assume the goal state to have a minimum cost $\(C^\*\)$ associated with it, with the minimum cost from any pair of states to be $\(\epsilon\)$, then both the space and time complexity of UCS can be given as $\(O(b^{C^\*/\epsilon})\)$.
 
 #### When the transition cost is uniform/constant
 
@@ -180,8 +180,8 @@ In the previous section we did a deep dive into uninformed search, which are the
 While such uninformed search approaches have a cost associated with each action from a given state, this cost indicates the cost of transition between two states. When analyzed cumulatively it only tells us the cost to reach the current state from the start state but it does not tell anything about how this cost relates to the actual goal we aim to achieve.
 
 **Terminology**:
-- **Backward cost \(g(n)\)**: The cost used by uninformed search approaches, where \(n\) is the action \(a\) taken from a given state \(s\)
-- **Forward cost or Heuristic \(h(n)\)**: A cost which is much more representative of the cost that the algorithm might incur from the current state to reach the goal state
+- **Backward cost $\(g(n)\)$**: The cost used by uninformed search approaches, where $\(n\)$ is the action $\(a\)$ taken from a given state $\(s\)$
+- **Forward cost or Heuristic $\(h(n)\)$**: A cost which is much more representative of the cost that the algorithm might incur from the current state to reach the goal state
 
 ### 3.1 Heuristics
 
@@ -201,9 +201,9 @@ While one can use any of the many heuristic options available to them, some heur
 
 $$0 \leq h(n) \leq h^*(n)$$
 
-where \(h^*(n)\) is the true cost to the nearest goal.
+where $\(h^\*(n)\)$ is the true cost to the nearest goal.
 
-This also means that an admissible heuristic will be optimistic of the outcome. However, it should also be noted that over optimism would be fatal. Consider \(h(n) = 0\) which while satisfying the above equation would render the heuristic useless.
+This also means that an admissible heuristic will be optimistic of the outcome. However, it should also be noted that over optimism would be fatal. Consider $\(h(n) = 0\)$ which while satisfying the above equation would render the heuristic useless.
 
 ### 3.2 Greedy Search
 
@@ -231,11 +231,11 @@ $$f(n) = h(n)$$
 
 ### 3.3 A-Star Search
 
-A-Star search, which is also considered to be a generalization of Dijkstra's algorithm, was originally used to solve the navigation problem in Shakey the robot. A-Star search simply combines the idea of greedy search and uniform cost search by considering the total cost to be a summation of the forward \(h(n)\) and backward costs \(g(n)\):
+A-Star search, which is also considered to be a generalization of Dijkstra's algorithm, was originally used to solve the navigation problem in Shakey the robot. A-Star search simply combines the idea of greedy search and uniform cost search by considering the total cost to be a summation of the forward $\(h(n)\)$ and backward costs $\(g(n)\)$:
 
 $$f(n) = g(n) + h(n)$$
 
-**Complexity**: The worst case time and space complexity of both A-star search and greedy search is the same as that for UCS, i.e. \(O(b^{C^*/\epsilon})\).
+**Complexity**: The worst case time and space complexity of both A-star search and greedy search is the same as that for UCS, i.e. $\(O(b^{C^\*/\epsilon})\)$.
 
 **Optimality**: A-Star search provides the optimal solution provided the heuristic being used is admissible.
 
@@ -295,7 +295,7 @@ The important distinction between the search algorithms without adversarial agen
 
 1. **Computational Expense**: If before taking a single action we have to analyze all possibilities in the future, then effectively we will have to solve the entire search tree for just selecting the first action to take. This is contrary to our aim of minimizing the number of nodes expanded to solve a search problem.
 
-   **Solution**: We use a concept similar to heuristics. We replace the overall cost \(f(n)\) with an **evaluation function \(E(s)\)** that is representative of the utility of a state \(s\), i.e. the evaluation function indicates how close we are to our goal. This utility function can be calculated for each state in the search tree independently. The amount of search tree that is expanded (or the amount of steps in the future that the agent can see before taking an action) can be controlled using a hyperparameter.
+   **Solution**: We use a concept similar to heuristics. We replace the overall cost $\(f(n)\)$ with an **evaluation function $\(E(s)\)$** that is representative of the utility of a state $\(s\)$, i.e. the evaluation function indicates how close we are to our goal. This utility function can be calculated for each state in the search tree independently. The amount of search tree that is expanded (or the amount of steps in the future that the agent can see before taking an action) can be controlled using a hyperparameter.
 
 2. **Different Goal**: Another important distinction is that while in single agent search algorithms we aim to find the optimal path between the start and the goal state, in multi-agent search we aim to find the best action for a given state.
 
@@ -345,7 +345,7 @@ Alpha-Beta search applies a technique of meta-reasoning to decide which computat
 
 **Pruning**: It can be observed that in order to prune the search tree, the order in which actions are considered do play an important role. While they are outside the algorithm's control, there may be ways to smartly select this ordering based on the evaluation function.
 
-**Complexity**: If we consider the best possible ordering of the actions we can get a time complexity of \(O(b^{m/2})\). This reduction in the time complexity allows us to run the mini-max search algorithm for deeper depths (looking more steps in the future) while having the same amount of resource constraints.
+**Complexity**: If we consider the best possible ordering of the actions we can get a time complexity of $\(O(b^{m/2})\)$. This reduction in the time complexity allows us to run the mini-max search algorithm for deeper depths (looking more steps in the future) while having the same amount of resource constraints.
 
 ---
 
@@ -396,30 +396,30 @@ Markov Decision Processes (MDP's) is one of the solutions to creating such polic
 
 ### MDP Terminology
 
-1. **Set of states \(S\)**
-2. **Start state \(s_0\)**
-3. **Set of actions \(A\)**
-4. **Transitions \(P(s'|s, a)\) or \(T(s, a, s')\)**: Since the actions in an MDP are stochastic, the result of a given action at a given state is not always the same. The probability that a given combination of state \(s\) and action \(a\) will yield state \(s'\) is given by \(P(s'|s, a)\)
-5. **Q State**: Q state can be best understood as an abstraction of the above transition probability. An alternate explanation can be seen from the multi-agent search tree. In the search tree when the primary agent has committed to an action \(a\) but the other agents/adversaries haven't, this state is the Q state, where the next state the agent lands in is out of the primary agent's control but rather dependent on some level of stochasticity indicated by the transition function.
-6. **Reward \(R(s, a, s')\)**: This is the reward associated with each state
-7. **Discounting factor \(\gamma\)**: Discounting factor is important to ensure that the rewards seen earlier are better than the rewards seen much later in an agent's lifetime. The discounting factor is \(0 \leq \gamma < 1\). The discounted reward \(r_t\) at the time \(t\) would be given by \(r_t = \gamma^t \times R_t\) where \(t \geq 0\). Another use of discounting is it can allow us to consider infinite search trees as finite beyond a point because if \(0 < \gamma < 1\), then \(\gamma^{\infty} \approx 0\) making the rewards at the bottom of an infinite search tree immaterial.
-8. **Utility \(U\)**: It is the sum of discounted rewards that the agent can earn in the future from a given state. This provides the utility \(U\) of any given future state as:
+1. **Set of states $\(S\)$**
+2. **Start state $\(s_0\)$**
+3. **Set of actions $\(A\)$**
+4. **Transitions $\(P(s'|s, a)\)$ or $\(T(s, a, s')\)$**: Since the actions in an MDP are stochastic, the result of a given action at a given state is not always the same. The probability that a given combination of state $\(s\)$ and action $\(a\)$ will yield state $\(s'\)$ is given by $\(P(s'|s, a)\)$
+5. **Q State**: Q state can be best understood as an abstraction of the above transition probability. An alternate explanation can be seen from the multi-agent search tree. In the search tree when the primary agent has committed to an action $\(a\)$ but the other agents/adversaries haven't, this state is the Q state, where the next state the agent lands in is out of the primary agent's control but rather dependent on some level of stochasticity indicated by the transition function.
+6. **Reward $\(R(s, a, s')\)$**: This is the reward associated with each state
+7. **Discounting factor $\(\gamma\)$**: Discounting factor is important to ensure that the rewards seen earlier are better than the rewards seen much later in an agent's lifetime. The discounting factor is $\(0 \leq \gamma < 1\)$. The discounted reward $\(r_t\)$ at the time $\(t\)$ would be given by $\(r_t = \gamma^t \times R_t\)$ where $\(t \geq 0\)$. Another use of discounting is it can allow us to consider infinite search trees as finite beyond a point because if $\(0 < \gamma < 1\)$, then $\(\gamma^{\infty} \approx 0\)$ making the rewards at the bottom of an infinite search tree immaterial.
+8. **Utility $\(U\)$**: It is the sum of discounted rewards that the agent can earn in the future from a given state. This provides the utility $\(U\)$ of any given future state as:
 
 $$U_s = \sum_{t=0}^{\infty} \gamma^t R_t = \frac{1}{1-\gamma} \sum_{t=0}^{\infty} R_t = \frac{R_{max}}{1-\gamma}$$
 
-9. **Value \(V^*(s)\)**: The maximum utility among all possible actions an agent can take given it is in state \(s\). In other words this can be said to be the utility of a state \(s\) assuming that the agent always takes the optimal action thereafter.
+9. **Value $\(V^\*(s)\)$**: The maximum utility among all possible actions an agent can take given it is in state $\(s\)$. In other words this can be said to be the utility of a state $\(s\)$ assuming that the agent always takes the optimal action thereafter.
 
-10. **Q Value \(Q^*(s, a)\)**: Expected utility given that the current action taken from state \(s\) is \(a\) and following this action the agent performs optimally. The major difference between Q value and the utility \(U\) defined above is that while the utility depicts the sum of discounted rewards in the future, the Q value takes the transition probabilities associated with each state into account, which is why we are mostly only concerned with the Q value and not the utility \(U\). The difference between V value and Q value can also be interpreted from a multi-agent search tree. While the V-value is associated with the utility of the primary agent, the Q-value is associated with the utility of the other agents whose actions are beyond the primary agent's control.
+10. **Q Value $\(Q^\*(s, a)\)$**: Expected utility given that the current action taken from state $\(s\)$ is $\(a\)$ and following this action the agent performs optimally. The major difference between Q value and the utility $\(U\)$ defined above is that while the utility depicts the sum of discounted rewards in the future, the Q value takes the transition probabilities associated with each state into account, which is why we are mostly only concerned with the Q value and not the utility $\(U\)$. The difference between V value and Q value can also be interpreted from a multi-agent search tree. While the V-value is associated with the utility of the primary agent, the Q-value is associated with the utility of the other agents whose actions are beyond the primary agent's control.
 
 ## 9. Bellman Equation
 
 The Bellman equation is used for optimization problems using dynamic programming. It can be applied to solve for MDP's by simply modeling the assumption that the agent takes the correct action and then onwards continues to be optimal.
 
-For the first assumption of the agent taking the correct action we can define \(V^*(s)\) as:
+For the first assumption of the agent taking the correct action we can define $\(V^\*(s)\)$ as:
 
 $$V^*(s) = \max_{a \in A} Q^*(s, a) \tag{1}$$
 
-Now, \(Q^*(s, a)\) indicates the average utility of the agent given action \(a\) at state \(s\). The averaging component is because of the transition function. Here the agent is no longer in control; rather the action is being controlled by a transition function and a certain level of stochasticity. Since we had encountered a similar situation in an ExpectiMax tree, let's consider how we would calculate \(Q^*(s, a)\) for an ExpectiMax tree.
+Now, $\(Q^\*(s, a)\)$ indicates the average utility of the agent given action $\(a\)$ at state $\(s\)$. The averaging component is because of the transition function. Here the agent is no longer in control; rather the action is being controlled by a transition function and a certain level of stochasticity. Since we had encountered a similar situation in an ExpectiMax tree, let's consider how we would calculate $\(Q^\*(s, a)\)$ for an ExpectiMax tree.
 
 In case of ExpectiMax:
 
@@ -429,11 +429,11 @@ Combining the ExpectiMax idea with the reward seen at the current state and the 
 
 $$Q^*(s, a) = \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^*(s')] \tag{3}$$
 
-Replacing \(Q^*(s, a)\) in equation 1 we get the Bellman equation:
+Replacing $\(Q^\*(s, a)\)$ in equation 1 we get the Bellman equation:
 
 $$V^*(s) = \max_{a \in A} \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^*(s')] \tag{4}$$
 
-The time complexity of a Bellman equation is \(O(S^2 A)\) where \(S\) is the number of states and \(A\) is the number of possible actions.
+The time complexity of a Bellman equation is $\(O(S^2 A)\)$ where $\(S\)$ is the number of states and $\(A\)$ is the number of possible actions.
 
 ## 10. Solving the Bellman Equation
 
@@ -455,23 +455,23 @@ $$V_{k+1} - V_k = \gamma^k \times \max_{i \in k} (R_i)$$
 
 $$\text{if } k \approx \infty, \gamma^k \approx 0, V_{k+1} - V_k \approx 0$$
 
-While in the above equation we only consider the case of \(k \approx \infty\), we do not go to infinite optimization steps. In practice when \(k\) becomes sufficiently large, the numbers become too small to be accommodated in the floating point precision and hence giving the illusion of \(k \approx \infty\).
+While in the above equation we only consider the case of $\(k \approx \infty\)$, we do not go to infinite optimization steps. In practice when $\(k\)$ becomes sufficiently large, the numbers become too small to be accommodated in the floating point precision and hence giving the illusion of $\(k \approx \infty\)$.
 
 ### Policy Iteration
 
-The solution of an MDP is actually not the values or utilities calculated at each state, rather it is the corresponding action to be taken at those states. When we performed the value iteration, we notice that while reaching the convergence for values may take \(n\) iterations, the only change after \(k\) iterations is in the values corresponding to these iterations and not the optimal action. Since \(k \ll n\), it motivates the concept of **policy iteration** where rather than trying to converge the values we try and converge the policy \(\pi\).
+The solution of an MDP is actually not the values or utilities calculated at each state, rather it is the corresponding action to be taken at those states. When we performed the value iteration, we notice that while reaching the convergence for values may take $\(n\)$ iterations, the only change after $\(k\)$ iterations is in the values corresponding to these iterations and not the optimal action. Since $\(k \ll n\)$, it motivates the concept of **policy iteration** where rather than trying to converge the values we try and converge the policy $\(\pi\)$.
 
 $$\pi_{i+1}(s) = \arg\max_{a \in A} \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^{\pi_i}(s')]$$
 
 ### Mixed Methods
 
-Another advantage of using policy iteration in place of value iteration is that policy iteration uses \(V^{\pi_i}(s')\) instead of \(V_k(s')\). This means that while we have to compute \(V_k(s')\) we have to only fetch \(V^{\pi_i}(s')\) from policy \(\pi_i\). This change can considerably reduce compute time and is also utilized by **mixed methods**, that perform both value iteration and policy iteration. They can use two steps of policy iteration where they only fetch \(V^{\pi_i}(s')\) followed by one step of value iteration to compute the update \(V_k(s')\) or vice versa.
+Another advantage of using policy iteration in place of value iteration is that policy iteration uses $\(V^{\pi_i}(s')\)$ instead of $\(V_k(s')\)$. This means that while we have to compute $\(V_k(s')\)$ we have to only fetch $\(V^{\pi_i}(s')\)$ from policy $\(\pi_i\)$. This change can considerably reduce compute time and is also utilized by **mixed methods**, that perform both value iteration and policy iteration. They can use two steps of policy iteration where they only fetch $\(V^{\pi_i}(s')\)$ followed by one step of value iteration to compute the update $\(V_k(s')\)$ or vice versa.
 
 ## 11. Evaluating Policies
 
-While we considered how to obtain the policy \(\pi^*\) using the Bellman equation, we did not consider how to evaluate the obtained policy. While evaluating a policy our goal is to find \(V^{\pi}(s)\), the expected total utility starting from state \(s\) and following policy \(\pi\).
+While we considered how to obtain the policy $\(\pi^\*\)$ using the Bellman equation, we did not consider how to evaluate the obtained policy. While evaluating a policy our goal is to find $\(V^{\pi}(s)\)$, the expected total utility starting from state $\(s\)$ and following policy $\(\pi\)$.
 
-Because \(\pi\) already gives us the optimal action we do not need the max operation as we no longer need to choose an action. Evaluation is a **linear operation** versus the iteration is a **non-linear operation** because of the presence of the max operation. Time complexity: \(O(S^2)\).
+Because $\(\pi\)$ already gives us the optimal action we do not need the max operation as we no longer need to choose an action. Evaluation is a **linear operation** versus the iteration is a **non-linear operation** because of the presence of the max operation. Time complexity: $\(O(S^2)\)$.
 
 $$V^{\pi}(s) = \sum_{s' \in S} T(s, \pi(s), s') \times [R(s, \pi(s), s') + \gamma V^{\pi}(s')] \tag{5}$$
 
@@ -489,7 +489,7 @@ There are two possible approaches to reinforcement learning: **model based learn
 
 In model based learning we first try and learn the model of the world, which means we try and approximate the transition function and the reward function. Once we have the transition function and the rewards function we use those to solve the problem similar to an MDP using either value iteration or policy iteration. The only difference being that in MDPs we were solving for the actual world model but now we are solving for an approximation of the world model.
 
-**How it works**: In order to find the transition and the reward functions we take every possible action from every state many times and count the number of times our action from one state results in every possible successor state. Based on the frequency with which we land in these states we can derive an approximation of the transition function \(T(s,a,s')\). We can follow a similar strategy to obtain the reward \(R(s,a,s')\).
+**How it works**: In order to find the transition and the reward functions we take every possible action from every state many times and count the number of times our action from one state results in every possible successor state. Based on the frequency with which we land in these states we can derive an approximation of the transition function $\(T(s,a,s')\)$. We can follow a similar strategy to obtain the reward $\(R(s,a,s')\)$.
 
 **Problem**: This approach is dependent on the **law of large numbers** in probability, i.e. in order to get a more precise transition function we have to collect more samples.
 
@@ -524,7 +524,7 @@ The above problem is solved by **temporal difference learning**, where the updat
 
 $$V^{\pi}_{k+1}(s) = \sum_{s'} T(s, \pi(s), s') \times [R(s, \pi(s), s') + \gamma \times V^{\pi}_k(s')]$$
 
-Since we do not have \(T(s, \pi(s), s')\), we replace it by learning from experience. We will follow the policy \(\pi\) multiple times for all states, which will provide us an approximation of the transition functions. So for one sample we calculate the value by:
+Since we do not have $\(T(s, \pi(s), s')\)$, we replace it by learning from experience. We will follow the policy $\(\pi\)$ multiple times for all states, which will provide us an approximation of the transition functions. So for one sample we calculate the value by:
 
 $$\text{sample} = R(s, \pi(s), s') + \gamma \times V^{\pi}(s')$$
 
@@ -536,21 +536,21 @@ Which is the same as:
 
 $$V^{\pi}(s) = V^{\pi}(s) + \alpha \times (\text{sample} - V^{\pi}(s)) \tag{6}$$
 
-For this we use the parameter \(\alpha\) where \(0 < \alpha < 1\):
-- If \(\alpha \approx 1\), we give a much higher weight to the recently seen episodes
+For this we use the parameter $\(\alpha\)$ where $\(0 < \alpha < 1\)$:
+- If $\(\alpha \approx 1\)$, we give a much higher weight to the recently seen episodes
 - If it closer to zero we are giving more weight to values collected by old episodes
 
-As we run for more episodes the value approximations start getting better, so when practically performing temporal difference learning it makes more sense to start with a high alpha and keep reducing it with the number of episodes. One way to reach such an approximation is by using \(\alpha = \frac{1}{n}\), where \(n\) is the number of episodes seen.
+As we run for more episodes the value approximations start getting better, so when practically performing temporal difference learning it makes more sense to start with a high alpha and keep reducing it with the number of episodes. One way to reach such an approximation is by using $\(\alpha = \frac{1}{n}\)$, where $\(n\)$ is the number of episodes seen.
 
 ## 16. Active Reinforcement Learning
 
-Because the above methods executed a pre-selected policy \(\pi\) they never had a choice of action. They had to execute the action provided by \(\pi\). This meant that though they could approximate the value of each state, they could not decide the optimal action as they had only experienced one action which was provided by the policy. This problem is solved by **active learning** where we do not just evaluate a policy but also derive at the optimal policy.
+Because the above methods executed a pre-selected policy $\(\pi\)$ they never had a choice of action. They had to execute the action provided by $\(\pi\)$. This meant that though they could approximate the value of each state, they could not decide the optimal action as they had only experienced one action which was provided by the policy. This problem is solved by **active learning** where we do not just evaluate a policy but also derive at the optimal policy.
 
 ### 16.1 Q Learning
 
 Q learning is a direct extension of the temporal difference learning. If we look at the temporal difference learning, we were only approximating the V-value of every state. For Q learning we simply calculate the Q-value instead.
 
-Because now we do not have a fixed policy, rather than getting the \(V^{\pi}(s')\) from the policy \(\pi\) we have to calculate the optimal value by taking the max of the Q-values for all possible actions at state \(s'\), i.e. \(\max_{a' \in A} Q(s', a')\).
+Because now we do not have a fixed policy, rather than getting the $\(V^{\pi}(s')\)$ from the policy $\(\pi\)$ we have to calculate the optimal value by taking the max of the Q-values for all possible actions at state $\(s'\)$, i.e. $\(\max_{a' \in A} Q(s', a')\)$.
 
 $$\text{sample} = R(s, a, s') + \gamma \times \max_{a' \in A} Q(s', a')$$
 
@@ -566,7 +566,7 @@ The above simplistic substitutions allow us to now derive the optimal policy rat
 
 **Important Note**: It should be noted that Q learning provides us the optimal policy even when for the repeated experiences we were acting sub-optimally.
 
-**Drawback**: The drawback of Q learning is that now we need to explore every state often to get its corresponding Q value. Eventually the parameter \(\alpha\), also referred to as the **learning rate**, has to be made small enough to avoid high fluctuations in values caused due to randomness. But at the same time \(\alpha\) cannot go down very quickly, so there is careful selection of \(\alpha\) required throughout the learning process to provide an optimal policy.
+**Drawback**: The drawback of Q learning is that now we need to explore every state often to get its corresponding Q value. Eventually the parameter $\(\alpha\)$, also referred to as the **learning rate**, has to be made small enough to avoid high fluctuations in values caused due to randomness. But at the same time $\(\alpha\)$ cannot go down very quickly, so there is careful selection of $\(\alpha\)$ required throughout the learning process to provide an optimal policy.
 
 ## 17. Exploration vs Exploitation
 
@@ -578,9 +578,9 @@ During active learning while the agent is building an optimal policy, if it keep
 
 ### ε-Greedy Approach
 
-One possible solution to this problem would be to use a hyperparameter \(\epsilon\) which will act as the probability with which the agent selects an action at random rather than following the policy. With the probability of \((1 - \epsilon)\) the agent exploits the current optimal policy, i.e. selects the action with the highest reward.
+One possible solution to this problem would be to use a hyperparameter $\(\epsilon\)$ which will act as the probability with which the agent selects an action at random rather than following the policy. With the probability of $\((1 - \epsilon)\)$ the agent exploits the current optimal policy, i.e. selects the action with the highest reward.
 
-**Problem**: Because exploration is dependent on \(\epsilon\) there is always a \((1 - \epsilon)\) probability that all actions from the current state would not be explored.
+**Problem**: Because exploration is dependent on $\(\epsilon\)$ there is always a $\((1 - \epsilon)\)$ probability that all actions from the current state would not be explored.
 
 ### Exploration Function
 
@@ -589,15 +589,15 @@ In order to solve this problem we use an exploration function:
 $$f(u, n) = u + \frac{k}{n}$$
 
 where:
-- \(u\) is the Q value of a state-action pair
-- \(n\) is the number of times that state-action pair has been executed
-- \(k\) is a constant offset
+- $\(u\)$ is the Q value of a state-action pair
+- $\(n\)$ is the number of times that state-action pair has been executed
+- $\(k\)$ is a constant offset
 
-**Core Idea**: The \(\frac{k}{n}\) term increases the utility of an infrequently visited state more than the utility of the frequently visited states.
+**Core Idea**: The $\(\frac{k}{n}\)$ term increases the utility of an infrequently visited state more than the utility of the frequently visited states.
 
 $$Q(s, a) \xleftarrow{\alpha} R(s, a, s') + \gamma \times \max_{a' \in A} f(Q(s', a'), N(s', a'))$$
 
-The above is the updated learning equation where \(N(s', a')\) is the number of times action \(a'\) was taken from state \(s'\).
+The above is the updated learning equation where $\(N(s', a')\)$ is the number of times action $\(a'\)$ was taken from state $\(s'\)$.
 
 ## 18. Conclusion
 

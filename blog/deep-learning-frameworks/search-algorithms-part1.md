@@ -129,19 +129,19 @@ Unlike DFS, BFS can still navigate an infinite search tree when the goal is to f
 
 #### Time Complexity
 
-If the problem was to explore the entire search tree (i.e. a problem like backtracking), both DFS and BFS will have the same time complexity since they will be expanding all the nodes in the search tree (considering that the tree is not infinite or cyclic). This time complexity will be \(b^m\), where \(b\) is the average number of successors for each node and \(m\) is the total number of levels in the tree.
+If the problem was to explore the entire search tree (i.e. a problem like backtracking), both DFS and BFS will have the same time complexity since they will be expanding all the nodes in the search tree (considering that the tree is not infinite or cyclic). This time complexity will be $\(b^m\)$, where $\(b\)$ is the average number of successors for each node and $\(m\)$ is the total number of levels in the tree.
 
 #### Space Complexity
 
 While the time complexity of both DFS and BFS is the same, they have vastly different space complexity:
-- **DFS**: \(O(bm)\)
-- **BFS**: \(O(b^m)\)
+- **DFS**: $\(O(bm)\)$
+- **BFS**: $\(O(b^m)\)$
 
 This space complexity difference is a big reason for using DFS over BFS when implemented on edge devices like robot vacuum cleaners.
 
-**DFS Space Complexity Explanation**: At the first search tier, DFS will see \(b\) possible branches, from which it will be expanding one branch, while keeping \((b-1)\) branches in memory. At tier 2 it will have \((b-1)\) branches for the node at tier 2, while also holding \((b-1)\) from the first tier. Assuming \(b_1 = b_2\) we have \(2 \times (b - 1)\), generalizing this further to the \(m\)th level we get \(O(mb)\) as the space complexity.
+**DFS Space Complexity Explanation**: At the first search tier, DFS will see $\(b\)$ possible branches, from which it will be expanding one branch, while keeping $\((b-1)\)$ branches in memory. At tier 2 it will have $\((b-1)\)$ branches for the node at tier 2, while also holding $\((b-1)\)$ from the first tier. Assuming $\(b_1 = b_2\)$ we have $\(2 \times (b - 1)\)$, generalizing this further to the $\(m\)$th level we get $\(O(mb)\)$ as the space complexity.
 
-**BFS Space Complexity Explanation**: At the first search tier, BFS will see \(b\) possible branches. So at the 1st tier BFS will have \(b\) nodes in memory. At tier 2 it expands each of the \(b\) states/nodes into their respective \(b\) successors each. This means at tier 2 it has \(b^2\) nodes in memory. Generalizing this further to the \(m\)th tier we get \(O(b^m)\) as the space complexity.
+**BFS Space Complexity Explanation**: At the first search tier, BFS will see $\(b\)$ possible branches. So at the 1st tier BFS will have $\(b\)$ nodes in memory. At tier 2 it expands each of the $\(b\)$ states/nodes into their respective $\(b\)$ successors each. This means at tier 2 it has $\(b^2\)$ nodes in memory. Generalizing this further to the $\(m\)$th tier we get $\(O(b^m)\)$ as the space complexity.
 
 ### 2.4 Uniform Cost Search (UCS)
 
@@ -151,7 +151,7 @@ While both DFS and BFS are able to find a path from a start state to the goal st
 
 **Optimality**: UCS is able to provide the optimal path from the start to the goal state.
 
-**Complexity**: The space and time complexity of UCS is similar to those of BFS. If \(b\) is the number of branches from a state and let's assume the goal state to have a minimum cost \(C^*\) associated with it, with the minimum cost from any pair of states to be \(\epsilon\), then both the space and time complexity of UCS can be given as \(O(b^{C^*/\epsilon})\).
+**Complexity**: The space and time complexity of UCS is similar to those of BFS. If $\(b\)$ is the number of branches from a state and let's assume the goal state to have a minimum cost $\(C^\*\)$ associated with it, with the minimum cost from any pair of states to be $\(\epsilon\)$, then both the space and time complexity of UCS can be given as $\(O(b^{C^\*/\epsilon})\)$.
 
 #### When the transition cost is uniform/constant
 
@@ -183,8 +183,8 @@ In the previous section we did a deep dive into uninformed search, which are the
 While such uninformed search approaches have a cost associated with each action from a given state, this cost indicates the cost of transition between two states. When analyzed cumulatively it only tells us the cost to reach the current state from the start state but it does not tell anything about how this cost relates to the actual goal we aim to achieve.
 
 **Terminology**:
-- **Backward cost \(g(n)\)**: The cost used by uninformed search approaches, where \(n\) is the action \(a\) taken from a given state \(s\)
-- **Forward cost or Heuristic \(h(n)\)**: A cost which is much more representative of the cost that the algorithm might incur from the current state to reach the goal state
+- **Backward cost $\(g(n)\)$**: The cost used by uninformed search approaches, where $\(n\)$ is the action $\(a\)$ taken from a given state $\(s\)$
+- **Forward cost or Heuristic $\(h(n)\)$**: A cost which is much more representative of the cost that the algorithm might incur from the current state to reach the goal state
 
 ### 3.1 Heuristics
 
@@ -204,9 +204,9 @@ While one can use any of the many heuristic options available to them, some heur
 
 $$0 \leq h(n) \leq h^*(n)$$
 
-where \(h^*(n)\) is the true cost to the nearest goal.
+where $\(h^\*(n)\)$ is the true cost to the nearest goal.
 
-This also means that an admissible heuristic will be optimistic of the outcome. However, it should also be noted that over optimism would be fatal. Consider \(h(n) = 0\) which while satisfying the above equation would render the heuristic useless.
+This also means that an admissible heuristic will be optimistic of the outcome. However, it should also be noted that over optimism would be fatal. Consider $\(h(n) = 0\)$ which while satisfying the above equation would render the heuristic useless.
 
 ### 3.2 Greedy Search
 
@@ -234,11 +234,11 @@ $$f(n) = h(n)$$
 
 ### 3.3 A-Star Search
 
-A-Star search, which is also considered to be a generalization of Dijkstra's algorithm, was originally used to solve the navigation problem in Shakey the robot. A-Star search simply combines the idea of greedy search and uniform cost search by considering the total cost to be a summation of the forward \(h(n)\) and backward costs \(g(n)\):
+A-Star search, which is also considered to be a generalization of Dijkstra's algorithm, was originally used to solve the navigation problem in Shakey the robot. A-Star search simply combines the idea of greedy search and uniform cost search by considering the total cost to be a summation of the forward $\(h(n)\)$ and backward costs $\(g(n)\)$:
 
 $$f(n) = g(n) + h(n)$$
 
-**Complexity**: The worst case time and space complexity of both A-star search and greedy search is the same as that for UCS, i.e. \(O(b^{C^*/\epsilon})\).
+**Complexity**: The worst case time and space complexity of both A-star search and greedy search is the same as that for UCS, i.e. $\(O(b^{C^\*/\epsilon})\)$.
 
 **Optimality**: A-Star search provides the optimal solution provided the heuristic being used is admissible.
 

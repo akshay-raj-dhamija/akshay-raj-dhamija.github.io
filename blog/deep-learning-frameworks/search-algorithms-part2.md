@@ -81,7 +81,7 @@ The important distinction between the search algorithms without adversarial agen
 
 If before taking a single action we have to analyze all possibilities in the future, then effectively we will have to solve the entire search tree for just selecting the first action to take. This is contrary to our aim of minimizing the number of nodes expanded to solve a search problem.
 
-**Solution**: We use a concept similar to heuristics. We replace the overall cost \(f(n)\) with an **evaluation function \(E(s)\)** that is representative of the utility of a state \(s\). The evaluation function indicates how close we are to our goal. This utility function can be calculated for each state in the search tree independently. 
+**Solution**: We use a concept similar to heuristics. We replace the overall cost $\(f(n)\)$ with an **evaluation function $\(E(s)\)$** that is representative of the utility of a state $\(s\)$. The evaluation function indicates how close we are to our goal. This utility function can be calculated for each state in the search tree independently. 
 
 The amount of search tree that is expanded (or the amount of steps in the future that the agent can see before taking an action) can be controlled using a **hyperparameter** (depth limit).
 
@@ -159,7 +159,7 @@ Avoid the expansion of unnecessary nodes in the search tree. This unnecessary ex
 
 **Pruning**: It can be observed that in order to prune the search tree, the order in which actions are considered do play an important role. While they are outside the algorithm's control, there may be ways to smartly select this ordering based on the evaluation function.
 
-**Complexity**: If we consider the best possible ordering of the actions we can get a time complexity of \(O(b^{m/2})\). 
+**Complexity**: If we consider the best possible ordering of the actions we can get a time complexity of $\(O(b^{m/2})\)$. 
 
 **Key Benefit**: This reduction in the time complexity allows us to run the mini-max search algorithm for **deeper depths** (looking more steps in the future) while having the same amount of resource constraints. This means we can **double the depth** we can search!
 

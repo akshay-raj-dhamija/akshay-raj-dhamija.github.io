@@ -58,28 +58,28 @@ The goal here is to create a map of states to actions for a given problem so tha
 
 Let's understand the building blocks of MDPs:
 
-1. **Set of states \(S\)**: All possible situations the agent can be in
-2. **Start state \(s_0\)**: Where the agent begins
-3. **Set of actions \(A\)**: All possible actions available
-4. **Transitions \(P(s'|s, a)\) or \(T(s, a, s')\)**: Since the actions in an MDP are **stochastic**, the result of a given action at a given state is not always the same. The probability that a given combination of state \(s\) and action \(a\) will yield state \(s'\) is given by \(P(s'|s, a)\)
+1. **Set of states $\(S\)$**: All possible situations the agent can be in
+2. **Start state $\(s_0\)$**: Where the agent begins
+3. **Set of actions $\(A\)$**: All possible actions available
+4. **Transitions $\(P(s'|s, a)\)$ or $\(T(s, a, s')\)$**: Since the actions in an MDP are **stochastic**, the result of a given action at a given state is not always the same. The probability that a given combination of state $\(s\)$ and action $\(a\)$ will yield state $\(s'\)$ is given by $\(P(s'|s, a)\)$
 
-5. **Q State**: Q state can be best understood as an abstraction of the transition probability. Think of it as: the primary agent has committed to an action \(a\) but the outcome is not yet determined - it depends on the stochastic transition function.
+5. **Q State**: Q state can be best understood as an abstraction of the transition probability. Think of it as: the primary agent has committed to an action $\(a\)$ but the outcome is not yet determined - it depends on the stochastic transition function.
 
-6. **Reward \(R(s, a, s')\)**: The reward associated with reaching state \(s'\) from state \(s\) via action \(a\)
+6. **Reward $\(R(s, a, s')\)$**: The reward associated with reaching state $\(s'\)$ from state $\(s\)$ via action $\(a\)$
 
-7. **Discounting factor \(\gamma\)**: Ensures that rewards seen earlier are valued more than rewards seen much later. The discounting factor is \(0 \leq \gamma < 1\). The discounted reward \(r_t\) at time \(t\) is: \(r_t = \gamma^t \times R_t\) where \(t \geq 0\)
+7. **Discounting factor $\(\gamma\)$**: Ensures that rewards seen earlier are valued more than rewards seen much later. The discounting factor is $\(0 \leq \gamma < 1\)$. The discounted reward $\(r_t\)$ at time $\(t\)$ is: $\(r_t = \gamma^t \times R_t\)$ where $\(t \geq 0\)$
    
-   Another use: if \(0 < \gamma < 1\), then \(\gamma^{\infty} \approx 0\), making rewards at the bottom of an infinite search tree negligible.
+   Another use: if $\(0 < \gamma < 1\)$, then $\(\gamma^{\infty} \approx 0\)$, making rewards at the bottom of an infinite search tree negligible.
 
-8. **Utility \(U\)**: The sum of discounted rewards that the agent can earn in the future from a given state:
+8. **Utility $\(U\)$**: The sum of discounted rewards that the agent can earn in the future from a given state:
 
 $$U_s = \sum_{t=0}^{\infty} \gamma^t R_t = \frac{R_{max}}{1-\gamma}$$
 
-9. **Value \(V^*(s)\)**: The maximum utility among all possible actions an agent can take given it is in state \(s\). In other words, the utility of a state \(s\) **assuming that the agent always takes the optimal action thereafter**.
+9. **Value $\(V^\*(s)\)$**: The maximum utility among all possible actions an agent can take given it is in state $\(s\)$. In other words, the utility of a state $\(s\)$ **assuming that the agent always takes the optimal action thereafter**.
 
-10. **Q Value \(Q^*(s, a)\)**: Expected utility given that the current action taken from state \(s\) is \(a\) and following this action the agent performs optimally. 
+10. **Q Value $\(Q^\*(s, a)\)$**: Expected utility given that the current action taken from state $\(s\)$ is $\(a\)$ and following this action the agent performs optimally. 
     
-    **Key Difference**: While utility \(U\) depicts the sum of discounted rewards, Q value takes the **transition probabilities** into account. The difference between V value and Q value: V-value is for the primary agent, Q-value is for when outcomes are beyond the agent's control.
+    **Key Difference**: While utility $\(U\)$ depicts the sum of discounted rewards, Q value takes the **transition probabilities** into account. The difference between V value and Q value: V-value is for the primary agent, Q-value is for when outcomes are beyond the agent's control.
 
 ---
 
@@ -89,11 +89,11 @@ The **Bellman equation** is used for optimization problems using dynamic program
 
 ### Deriving the Bellman Equation
 
-For the agent taking the correct action, we define \(V^*(s)\) as:
+For the agent taking the correct action, we define $\(V^\*(s)\)$ as:
 
 $$V^*(s) = \max_{a \in A} Q^*(s, a) \tag{1}$$
 
-Now, \(Q^*(s, a)\) indicates the average utility of the agent given action \(a\) at state \(s\). The averaging component is because of the transition function - the agent is no longer in control.
+Now, $\(Q^\*(s, a)\)$ indicates the average utility of the agent given action $\(a\)$ at state $\(s\)$. The averaging component is because of the transition function - the agent is no longer in control.
 
 From ExpectiMax (Part 2), we know:
 
@@ -103,11 +103,11 @@ Combining this with the reward seen at the current state and discounting of futu
 
 $$Q^*(s, a) = \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^*(s')] \tag{3}$$
 
-Replacing \(Q^*(s, a)\) in equation 1, we get the **Bellman equation**:
+Replacing $\(Q^\*(s, a)\)$ in equation 1, we get the **Bellman equation**:
 
 $$V^*(s) = \max_{a \in A} \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^*(s')] \tag{4}$$
 
-**Time complexity**: \(O(S^2 A)\) where \(S\) is the number of states and \(A\) is the number of possible actions.
+**Time complexity**: $\(O(S^2 A)\)$ where $\(S\)$ is the number of states and $\(A\)$ is the number of possible actions.
 
 ---
 
@@ -129,34 +129,34 @@ $$V_{k+1} - V_k = \gamma^k \times \max_{i \in k} (R_i)$$
 
 $$\text{if } k \approx \infty, \ \gamma^k \approx 0, \ V_{k+1} - V_k \approx 0$$
 
-While we don't go to infinite optimization steps, in practice when \(k\) becomes sufficiently large, the numbers become too small for floating point precision, giving the illusion of \(k \approx \infty\).
+While we don't go to infinite optimization steps, in practice when $\(k\)$ becomes sufficiently large, the numbers become too small for floating point precision, giving the illusion of $\(k \approx \infty\)$.
 
 ### Method 3: Policy Iteration 🎯
 
-The solution of an MDP is actually not the values at each state, but the **corresponding action** to be taken at those states. When we perform value iteration, we notice that while reaching convergence for values may take \(n\) iterations, the optimal action converges after only \(k\) iterations where \(k \ll n\).
+The solution of an MDP is actually not the values at each state, but the **corresponding action** to be taken at those states. When we perform value iteration, we notice that while reaching convergence for values may take $\(n\)$ iterations, the optimal action converges after only $\(k\)$ iterations where $\(k \ll n\)$.
 
-This motivates **policy iteration** where rather than trying to converge the values, we try to converge the policy \(\pi\):
+This motivates **policy iteration** where rather than trying to converge the values, we try to converge the policy $\(\pi\)$:
 
 $$\pi_{i+1}(s) = \arg\max_{a \in A} \sum_{s' \in S} T(s, a, s') \times [R(s, a, s') + \gamma V^{\pi_i}(s')]$$
 
 ### Method 4: Mixed Methods
 
-Another advantage of policy iteration is that it uses \(V^{\pi_i}(s')\) instead of \(V_k(s')\). This means we have to **compute** \(V_k(s')\) but only **fetch** \(V^{\pi_i}(s')\) from policy \(\pi_i\). This reduces compute time.
+Another advantage of policy iteration is that it uses $\(V^{\pi_i}(s')\)$ instead of $\(V_k(s')\)$. This means we have to **compute** $\(V_k(s')\)$ but only **fetch** $\(V^{\pi_i}(s')\)$ from policy $\(\pi_i\)$. This reduces compute time.
 
 **Mixed methods** perform both value iteration and policy iteration, e.g.:
-- Two steps of policy iteration (fetch \(V^{\pi_i}(s')\))
-- One step of value iteration (compute update \(V_k(s')\))
+- Two steps of policy iteration (fetch $\(V^{\pi_i}(s')\)$)
+- One step of value iteration (compute update $\(V_k(s')\)$)
 - Or vice versa
 
 ---
 
 ## 4. Evaluating Policies
 
-While we learned how to obtain the policy \(\pi^*\) using the Bellman equation, we need to know how to evaluate it. When evaluating a policy, our goal is to find \(V^{\pi}(s)\) - the expected total utility starting from state \(s\) and following policy \(\pi\).
+While we learned how to obtain the policy $\(\pi^\*\)$ using the Bellman equation, we need to know how to evaluate it. When evaluating a policy, our goal is to find $\(V^{\pi}(s)\)$ - the expected total utility starting from state $\(s\)$ and following policy $\(\pi\)$.
 
-Because \(\pi\) already gives us the optimal action, we **don't need the max operation**. Evaluation is a **linear operation** (versus iteration which is non-linear due to the max operation).
+Because $\(\pi\)$ already gives us the optimal action, we **don't need the max operation**. Evaluation is a **linear operation** (versus iteration which is non-linear due to the max operation).
 
-**Time complexity**: \(O(S^2)\)
+**Time complexity**: $\(O(S^2)\)$
 
 $$V^{\pi}(s) = \sum_{s' \in S} T(s, \pi(s), s') \times [R(s, \pi(s), s') + \gamma V^{\pi}(s')] \tag{5}$$
 
@@ -192,8 +192,8 @@ In model based learning we first try to **learn the model of the world** - we ap
 To find the transition and reward functions:
 1. Take every possible action from every state **many times**
 2. Count the number of times our action from one state results in each possible successor state
-3. Based on frequency, derive an approximation of \(T(s,a,s')\)
-4. Follow similar strategy to obtain \(R(s,a,s')\)
+3. Based on frequency, derive an approximation of $\(T(s,a,s')\)$
+4. Follow similar strategy to obtain $\(R(s,a,s')\)$
 
 ### Problem
 
@@ -232,7 +232,7 @@ The problem above is solved by **temporal difference learning**, where the updat
 
 $$V^{\pi}_{k+1}(s) = \sum_{s'} T(s, \pi(s), s') \times [R(s, \pi(s), s') + \gamma \times V^{\pi}_k(s')]$$
 
-Since we don't have \(T(s, \pi(s), s')\), we replace it by **learning from experience**. We follow policy \(\pi\) multiple times for all states, providing an approximation of transitions.
+Since we don't have $\(T(s, \pi(s), s')\)$, we replace it by **learning from experience**. We follow policy $\(\pi\)$ multiple times for all states, providing an approximation of transitions.
 
 For one sample, we calculate:
 
@@ -246,11 +246,11 @@ Which is the same as:
 
 $$V^{\pi}(s) = V^{\pi}(s) + \alpha \times (\text{sample} - V^{\pi}(s)) \tag{6}$$
 
-Where \(\alpha\) is the **learning rate** (\(0 < \alpha < 1\)):
-- If \(\alpha \approx 1\): Higher weight to recent episodes
-- If \(\alpha \approx 0\): More weight to old episodes
+Where $\(\alpha\)$ is the **learning rate** ($\(0 < \alpha < 1\)$):
+- If $\(\alpha \approx 1\)$: Higher weight to recent episodes
+- If $\(\alpha \approx 0\)$: More weight to old episodes
 
-**Best practice**: Start with high \(\alpha\) and reduce it over time. One approach: \(\alpha = \frac{1}{n}\) where \(n\) is the number of episodes seen.
+**Best practice**: Start with high $\(\alpha\)$ and reduce it over time. One approach: $\(\alpha = \frac{1}{n}\)$ where $\(n\)$ is the number of episodes seen.
 
 ---
 
@@ -264,7 +264,7 @@ In passive RL, we only evaluated a policy - we never had a choice of action. Tho
 
 Q learning is a direct extension of temporal difference learning. Instead of only approximating V-values, we **calculate Q-values**.
 
-Because we don't have a fixed policy, instead of getting \(V^{\pi}(s')\) from policy \(\pi\), we calculate the optimal value by taking the **max** of Q-values for all possible actions at state \(s'\):
+Because we don't have a fixed policy, instead of getting $\(V^{\pi}(s')\)$ from policy $\(\pi\)$, we calculate the optimal value by taking the **max** of Q-values for all possible actions at state $\(s'\)$:
 
 $$\text{sample} = R(s, a, s') + \gamma \times \max_{a' \in A} Q(s', a')$$
 
@@ -280,7 +280,7 @@ $$Q(s, a) \xleftarrow{\alpha} R(s, a, s') + \gamma \times \max_{a' \in A} Q(s', 
 
 ✅ **Optimal even with sub-optimal exploration**: Q-learning provides the optimal policy **even when during exploration we acted sub-optimally**!
 
-⚠️ **Requires exploration**: We need to explore every state often to get its Q value. The learning rate \(\alpha\) has to be:
+⚠️ **Requires exploration**: We need to explore every state often to get its Q value. The learning rate $\(\alpha\)$ has to be:
 - Small enough to avoid high fluctuations due to randomness
 - Not decreasing too quickly
 - Carefully selected throughout learning
@@ -297,11 +297,11 @@ During active learning while building an optimal policy, if the agent always sel
 
 ### 10.1 ε-Greedy Approach
 
-Use a hyperparameter \(\epsilon\) as the probability with which the agent selects an action at random rather than following the policy:
-- With probability \((1 - \epsilon)\): **exploit** (select action with highest reward)
-- With probability \(\epsilon\): **explore** (select random action)
+Use a hyperparameter $\(\epsilon\)$ as the probability with which the agent selects an action at random rather than following the policy:
+- With probability $\((1 - \epsilon)\)$: **exploit** (select action with highest reward)
+- With probability $\(\epsilon\)$: **explore** (select random action)
 
-**Problem**: There's always a \((1 - \epsilon)\) probability that not all actions from the current state will be explored.
+**Problem**: There's always a $\((1 - \epsilon)\)$ probability that not all actions from the current state will be explored.
 
 ### 10.2 Exploration Function 🎯
 
@@ -310,15 +310,15 @@ To solve the above problem, we use an exploration function:
 $$f(u, n) = u + \frac{k}{n}$$
 
 Where:
-- \(u\) is the Q value of a state-action pair
-- \(n\) is the number of times that state-action pair has been executed
-- \(k\) is a constant offset
+- $\(u\)$ is the Q value of a state-action pair
+- $\(n\)$ is the number of times that state-action pair has been executed
+- $\(k\)$ is a constant offset
 
-**Core Idea**: The \(\frac{k}{n}\) term **increases the utility of infrequently visited states** more than frequently visited states, encouraging exploration of under-explored areas.
+**Core Idea**: The $\(\frac{k}{n}\)$ term **increases the utility of infrequently visited states** more than frequently visited states, encouraging exploration of under-explored areas.
 
 $$Q(s, a) \xleftarrow{\alpha} R(s, a, s') + \gamma \times \max_{a' \in A} f(Q(s', a'), N(s', a'))$$
 
-Where \(N(s', a')\) is the number of times action \(a'\) was taken from state \(s'\).
+Where $\(N(s', a')\)$ is the number of times action $\(a'\)$ was taken from state $\(s'\)$.
 
 ---
 
