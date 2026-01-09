@@ -116,12 +116,12 @@ MiniMax algorithm provides utilities considering:
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 1:</strong> MiniMax tree example showing how values propagate from leaf nodes through alternating min and max layers to determine the optimal action.</p>
 </div>
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 2:</strong> MiniMax search algorithm pseudocode. The algorithm alternates between maximization (for allies) and minimization (for adversaries) to find the optimal action for the primary agent.</p>
 </div>
 
@@ -166,7 +166,7 @@ Avoid the expansion of unnecessary nodes in the search tree. This unnecessary ex
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 3:</strong> Alpha-Beta search explanation. Alpha-Beta search provides the same result as MiniMax but explores fewer nodes by pruning unnecessary branches. Alpha (α) is set by the maximization function and used by the minimization function to decide when to stop traversing the sub-tree.</p>
 </div>
 
@@ -228,7 +228,7 @@ The concept of expectimax can also be generalized towards **mixed trees** which 
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 4:</strong> ExpectiMax search algorithm. Instead of assuming adversaries will always take the worst action (as in MiniMax), ExpectiMax computes expected values based on probabilities of different actions.</p>
 </div>
 

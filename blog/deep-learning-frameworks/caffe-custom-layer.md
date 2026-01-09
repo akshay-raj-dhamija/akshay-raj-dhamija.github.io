@@ -17,7 +17,7 @@ A modification of this layer was used for U-net architecture model which can be 
 
 💡 *Tip: For better visualization, right click on the image and click "Open Image in New Tab".*
 
-![U-Net Architecture](Images/akshay_unet.png)
+![U-Net Architecture](../Images/akshay_unet.png)
 
 Sigmoid cross entropy loss may be defined as
 $$t\ln(S) + (1-t) \ln(1-S)$$
@@ -42,11 +42,11 @@ Now, lets examine the nature of the function $e^{-x}$ and $e^{x}$
 <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin: 20px 0;">
   <div style="flex: 1; text-align: center;">
     <h4>e<sup>-x</sup> function</h4>
-    <img src="Images/e-x.png" alt="e^-x function" style="max-width: 100%; height: auto;">
+    <img src="../Images/e-x.png" alt="e^-x function" style="max-width: 100%; height: auto;">
   </div>
   <div style="flex: 1; text-align: center;">
     <h4>e<sup>x</sup> function</h4>
-    <img src="Images/ex.png" alt="e^x function" style="max-width: 100%; height: auto;">
+    <img src="../Images/ex.png" alt="e^x function" style="max-width: 100%; height: auto;">
   </div>
 </div>
 

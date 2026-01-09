@@ -6,3 +6,11 @@ blog/**/*.html
 !blog/index.html
 !blog/post.html
 __pycache__/
+
+# Jekyll build artifacts
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock

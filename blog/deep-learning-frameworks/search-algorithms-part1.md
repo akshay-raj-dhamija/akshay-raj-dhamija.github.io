@@ -92,7 +92,7 @@ In depth first search we pick one of the various possible successors of a tree n
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/DFS.png" alt="Depth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/DFS.png" alt="Depth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 1:</strong> Depth First Search (DFS) - The brightness of the red color indicates how early during the search that the pac-man visited this position. The pac-man started at the top right state and the food pellet was at the bottom left.</p>
 </div>
 
@@ -111,7 +111,7 @@ A counterpart of depth first search can be the breadth first search (BFS). While
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/BFS.png" alt="Breadth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/BFS.png" alt="Breadth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 2:</strong> Breadth First Search (BFS) - BFS simultaneously expands each node and its siblings, resulting in a different exploration pattern compared to DFS.</p>
 </div>
 
@@ -151,7 +151,7 @@ While both DFS and BFS are able to find a path from a start state to the goal st
 
 **Optimality**: UCS is able to provide the optimal path from the start to the goal state.
 
-**Complexity**: The space and time complexity of UCS is similar to those of BFS. If $\(b\)$ is the number of branches from a state and let's assume the goal state to have a minimum cost $\(C^\*\)$ associated with it, with the minimum cost from any pair of states to be $\(\epsilon\)$, then both the space and time complexity of UCS can be given as $\(O(b^{C^\*/\epsilon})\)$.
+**Complexity**: The space and time complexity of UCS is similar to those of BFS. If $\(b\)$ is the number of branches from a state and let's assume the goal state to have a minimum cost $\(C^*\)$ associated with it, with the minimum cost from any pair of states to be $\(\epsilon\)$, then both the space and time complexity of UCS can be given as $\(O(b^{C^\*/\epsilon})\)$.
 
 #### When the transition cost is uniform/constant
 
@@ -160,7 +160,7 @@ If UCS is applied to a problem where the transition cost between two states is c
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="Images/UCS.png" alt="Uniform Cost Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="../Images/UCS.png" alt="Uniform Cost Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 3:</strong> Uniform Cost Search (UCS) - UCS is cost-sensitive and provides the optimal path. In cases with uniform transition costs, it behaves identically to BFS.</p>
 </div>
 
@@ -220,11 +220,11 @@ $$f(n) = h(n)$$
 <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">Greedy Search with Euclidean Distance</h4>
-    <img src="Images/GD_Euc.png" alt="Greedy Search L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="../Images/GD_Euc.png" alt="Greedy Search L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">Greedy Search with Manhattan Distance</h4>
-    <img src="Images/GS_MHD.png" alt="Greedy Search L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="../Images/GS_MHD.png" alt="Greedy Search L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
 </div>
 
@@ -249,11 +249,11 @@ $$f(n) = g(n) + h(n)$$
 <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">A-Star with Euclidean Distance</h4>
-    <img src="Images/Astar_Euc.png" alt="A-Star L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="../Images/Astar_Euc.png" alt="A-Star L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">A-Star with Manhattan Distance</h4>
-    <img src="Images/Astar_MHD.png" alt="A-Star L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="../Images/Astar_MHD.png" alt="A-Star L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
 </div>
 

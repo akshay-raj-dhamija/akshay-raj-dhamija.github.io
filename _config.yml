@@ -1,5 +1,8 @@
 title: Akshay Raj Dhamija
 description: Computer Vision and Deep Learning Researcher
+baseurl: "" # Empty for GitHub Pages user site
+url: "" # Your site URL (leave empty for local dev)
+
 markdown: kramdown
 kramdown:
   math_engine: mathjax
@@ -16,3 +19,8 @@ exclude:
   - README.md
   - README.txt
   - LICENSE.txt
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - setup_jekyll.sh
+  - README_JEKYLL.md

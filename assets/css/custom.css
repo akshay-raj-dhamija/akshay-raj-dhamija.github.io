@@ -1,0 +1,105 @@
+/* Custom CSS to reduce sidebar width and font sizes */
+
+/* Set sidebar width to fit all icons in one line (increased from 16em to 20em) */
+#header {
+	width: 20em !important;
+}
+
+/* Adjust wrapper padding to match new sidebar width */
+#wrapper {
+	padding-left: 20em !important;
+}
+
+/* Reduce base font size */
+body, input, select, textarea {
+	font-size: 14pt !important;
+}
+
+/* Reduce header font sizes in sidebar */
+#header > header h1 {
+	font-size: 1.4em !important;
+}
+
+#header > header {
+	padding: 2em !important;
+}
+
+#header > header .avatar {
+	width: 6em !important;
+	margin-bottom: 1.5em !important;
+}
+
+/* Reduce navigation link padding */
+#header > nav ul li a {
+	padding: 0.6em 0 !important;
+	font-size: 0.9em !important;
+}
+
+/* Reduce footer padding in sidebar */
+#header > footer {
+	padding: 1.5em !important;
+}
+
+/* Reduce main content font sizes */
+#main {
+	font-size: 0.95em;
+}
+
+#main h1 {
+	font-size: 2em !important;
+}
+
+#main h2 {
+	font-size: 1.6em !important;
+}
+
+#main h3 {
+	font-size: 1.3em !important;
+}
+
+#main h4 {
+	font-size: 1.1em !important;
+}
+
+/* Reduce blog post content font sizes */
+#markdown-content {
+	font-size: 0.95em !important;
+}
+
+#markdown-content h1 {
+	font-size: 1.8em !important;
+}
+
+#markdown-content h2 {
+	font-size: 1.5em !important;
+}
+
+#markdown-content h3 {
+	font-size: 1.2em !important;
+}
+
+#markdown-content h4 {
+	font-size: 1.1em !important;
+}
+
+/* Adjust for medium screens */
+@media screen and (max-width: 1280px) {
+	#header {
+		width: 20em !important;
+	}
+	
+	#wrapper {
+		padding-left: 20em !important;
+	}
+}
+
+/* Adjust for mobile/tablet */
+@media screen and (max-width: 1024px) {
+	#header {
+		width: 23em !important;
+		-moz-transform: translateX(-23em) !important;
+		-webkit-transform: translateX(-23em) !important;
+		-ms-transform: translateX(-23em) !important;
+		transform: translateX(-23em) !important;
+	}
+}
