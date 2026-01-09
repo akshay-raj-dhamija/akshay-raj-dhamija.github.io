@@ -1,4 +1,9 @@
-# Multi-Agent Search & Game Theory
+---
+layout: post
+title: "Multi-Agent Search & Game Theory"
+permalink: /blog/deep-learning-frameworks/search-algorithms-part2.html
+---
+
 ## Part 2 of 3: AI Search Fundamentals Series
 
 **Author:** Akshay Raj Dhamija  
@@ -9,13 +14,13 @@
 ---
 
 > **📚 Series Navigation:**  
-> [← Part 1: Mastering Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)  
+> [← Part 1: Mastering Search Algorithms](search-algorithms-part1.html)  
 > **Part 2: Multi-Agent Search & Game Theory** (Current)  
-> [Part 3: MDPs to Q-Learning →](post.html?md=deep-learning-frameworks/search-algorithms-part3.md)
+> [Part 3: MDPs to Q-Learning →](search-algorithms-part3.html)
 
 ---
 
-Welcome to Part 2 of our AI Search Fundamentals series! In [Part 1](post.html?md=deep-learning-frameworks/search-algorithms-part1.md), we mastered single-agent search algorithms like DFS, BFS, and A-Star. Now we'll explore the fascinating world of **multi-agent search** where we must consider opponents, allies, and uncertainty.
+Welcome to Part 2 of our AI Search Fundamentals series! In [Part 1](search-algorithms-part1.html), we mastered single-agent search algorithms like DFS, BFS, and A-Star. Now we'll explore the fascinating world of **multi-agent search** where we must consider opponents, allies, and uncertainty.
 
 **What you'll learn in this post:**
 - How search changes when adversaries are involved
@@ -111,12 +116,12 @@ MiniMax algorithm provides utilities considering:
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 1:</strong> MiniMax tree example showing how values propagate from leaf nodes through alternating min and max layers to determine the optimal action.</p>
 </div>
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 2:</strong> MiniMax search algorithm pseudocode. The algorithm alternates between maximization (for allies) and minimization (for adversaries) to find the optimal action for the primary agent.</p>
 </div>
 
@@ -161,7 +166,7 @@ Avoid the expansion of unnecessary nodes in the search tree. This unnecessary ex
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 3:</strong> Alpha-Beta search explanation. Alpha-Beta search provides the same result as MiniMax but explores fewer nodes by pruning unnecessary branches. Alpha (α) is set by the maximization function and used by the minimization function to decide when to stop traversing the sub-tree.</p>
 </div>
 
@@ -223,7 +228,7 @@ The concept of expectimax can also be generalized towards **mixed trees** which 
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 4:</strong> ExpectiMax search algorithm. Instead of assuming adversaries will always take the worst action (as in MiniMax), ExpectiMax computes expected values based on probabilities of different actions.</p>
 </div>
 
@@ -251,7 +256,7 @@ For such multi-agent search approaches we have to look a few steps in the future
 
 Alongside, now we consider the actions of our primary agent to be **stochastic** (i.e. there is some amount of randomness in the actions of the agent).
 
-💡 **This is where we transition from game-playing to learning!** In [Part 3](post.html?md=deep-learning-frameworks/search-algorithms-part3.md), we'll explore how to learn these policies using Markov Decision Processes and Reinforcement Learning.
+💡 **This is where we transition from game-playing to learning!** In [Part 3](search-algorithms-part3.html), we'll explore how to learn these policies using Markov Decision Processes and Reinforcement Learning.
 
 ---
 
@@ -298,17 +303,17 @@ You've now mastered search algorithms from simple pathfinding to complex game-pl
 - Temporal Difference Learning
 - Exploration vs Exploitation strategies
 
-**👉 [Continue to Part 3: MDPs to Q-Learning →](post.html?md=deep-learning-frameworks/search-algorithms-part3.md)**
+**👉 [Continue to Part 3: MDPs to Q-Learning →](search-algorithms-part3.html)**
 
 ### Resources
 
 - **Code Examples**: All implementations available in the [pac-man repository](https://github.com/akshay-raj-dhamija/pac-man)
 - **Course**: [UC Berkeley CS-188](https://inst.eecs.berkeley.edu/~cs188/su21/)
-- **Previous**: [Part 1: Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)
-- **Next**: [Part 3: Reinforcement Learning](post.html?md=deep-learning-frameworks/search-algorithms-part3.md)
-- **Complete Guide**: [All Three Parts Combined](post.html?md=deep-learning-frameworks/search-trees-to-reinforcement-learning.md)
+- **Previous**: [Part 1: Search Algorithms](search-algorithms-part1.html)
+- **Next**: [Part 3: Reinforcement Learning](search-algorithms-part3.html)
+- **Complete Guide**: [All Three Parts Combined](search-trees-to-reinforcement-learning.html)
 
 ---
 
-**[← Part 1: Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Back to Blog](../index.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Part 3: MDPs & Q-Learning →](post.html?md=deep-learning-frameworks/search-algorithms-part3.md)**
+**[← Part 1: Search Algorithms](search-algorithms-part1.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Back to Blog](../index.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Part 3: MDPs & Q-Learning →](search-algorithms-part3.html)**
 

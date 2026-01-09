@@ -1,2 +1,8 @@
 .DS_Store
 **/.DS_Store
+
+# Generated HTML files (GitHub Pages will build these from markdown)
+blog/**/*.html
+!blog/index.html
+!blog/post.html
+__pycache__/

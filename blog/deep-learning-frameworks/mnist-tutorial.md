@@ -1,4 +1,8 @@
-# MNIST Caffe2 Tutorial
+---
+layout: post
+title: "MNIST Caffe2 Tutorial"
+permalink: /blog/deep-learning-frameworks/mnist-tutorial.html
+---
 
 **2017-05-27 00:00** | *Caffe2*
 

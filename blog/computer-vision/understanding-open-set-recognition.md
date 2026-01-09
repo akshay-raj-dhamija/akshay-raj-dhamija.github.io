@@ -1,4 +1,8 @@
-# Understanding Open Set Recognition
+---
+layout: post
+title: "Understanding Open Set Recognition"
+permalink: /blog/computer-vision/understanding-open-set-recognition.html
+---
 
 **December 15, 2024** | *Computer Vision & Deep Learning*
 
@@ -10,7 +14,7 @@
 
 In traditional machine learning, we train models on a closed set of classes and expect them to classify inputs into one of these known classes. However, real-world applications rarely operate under such constraints. When deploying a model in production, it will inevitably encounter inputs that don't belong to any of the training classes. This is where **open set recognition** becomes crucial.
 
-![Open Set Recognition](../Images/Ring_0_2D_crop.png)
+![Open Set Recognition](Images/Ring_0_2D_crop.png)
 
 ## The Challenge
 

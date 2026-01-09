@@ -163,7 +163,7 @@
 			<script src="../assets/js/main.js"></script>
 			
 		<!-- Markdown, Syntax Highlighting, and Math Rendering -->
-		<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" onload="console.log('marked.js loaded')" onerror="console.error('Failed to load marked.js')"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 		<!-- MathJax for LaTeX rendering -->
 		<script>
@@ -181,19 +181,58 @@
 		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 		
 		<script>
-			// Get markdown file from URL parameter
-			const urlParams = new URLSearchParams(window.location.search);
-			const mdFile = urlParams.get('md');
+			// Track loading attempts
+			let loadAttempts = 0;
+			const maxAttempts = 50; // 5 seconds max wait
 			
-			if (mdFile) {
+			// Function to load and render markdown
+			function loadMarkdown() {
+				console.log('loadMarkdown called, attempt:', loadAttempts);
+				// Get markdown file from URL parameter
+				const urlParams = new URLSearchParams(window.location.search);
+				const mdFile = urlParams.get('md');
+				console.log('mdFile:', mdFile);
+				
+				if (!mdFile) {
+					document.getElementById('markdown-content').innerHTML = 
+						'<p>No blog post specified. <a href="index.html">Return to blog</a></p>';
+					return;
+				}
+				
+				// Check if marked is loaded, wait if not (with timeout)
+				if (typeof marked === 'undefined') {
+					loadAttempts++;
+					if (loadAttempts > maxAttempts) {
+						console.error('marked.js failed to load after ' + maxAttempts + ' attempts');
+						document.getElementById('markdown-content').innerHTML = 
+							'<p>Error: Markdown parser failed to load. Please refresh the page. <a href="index.html">Return to blog</a></p>';
+						return;
+					}
+					console.log('Waiting for marked.js to load... (attempt ' + loadAttempts + ')');
+					setTimeout(loadMarkdown, 100);
+					return;
+				}
+				console.log('marked.js is loaded');
+				
+				console.log('Fetching markdown file:', mdFile);
 				// Fetch and render markdown
 				fetch(mdFile)
-					.then(response => response.text())
+					.then(response => {
+						console.log('Response received:', response.status);
+						if (!response.ok) {
+							throw new Error('HTTP error! status: ' + response.status);
+						}
+						return response.text();
+					})
 					.then(markdown => {
+						console.log('Markdown loaded, length:', markdown.length);
 						// Configure marked
 						marked.setOptions({
 							breaks: true,
-							gfm: true
+							gfm: true,
+							// Preserve LaTeX math delimiters
+							sanitize: false,
+							silent: true
 						});
 						
 						// Render markdown to HTML
@@ -205,6 +244,20 @@
 						html = html.replace(/src="Images\//g, 'src="Images/');
 						html = html.replace(/href="\.\.\/Images\//g, 'href="Images/');
 						html = html.replace(/href="Images\//g, 'href="Images/');
+						
+						// Preserve LaTeX math syntax - ensure delimiters are not escaped
+						// Fix any escaped backslashes in LaTeX math delimiters
+						// Handle inline math: \( and \)
+						html = html.replace(/\\\\(/g, '\\(');
+						html = html.replace(/\\\\)/g, '\\)');
+						// Handle display math: \[ and \]
+						html = html.replace(/\\\\\[/g, '\\[');
+						html = html.replace(/\\\\\]/g, '\\]');
+						// Also handle cases where HTML entities might be used
+						html = html.replace(/&amp;#92;\(/g, '\\(');
+						html = html.replace(/&amp;#92;\)/g, '\\)');
+						html = html.replace(/&amp;#92;\[/g, '\\[');
+						html = html.replace(/&amp;#92;\]/g, '\\]');
 						
 						document.getElementById('markdown-content').innerHTML = html;
 						
@@ -220,20 +273,49 @@
 						});
 						
 						// Render LaTeX math with MathJax
-						if (window.MathJax) {
-							MathJax.typesetPromise([document.getElementById('markdown-content')]).catch((err) => {
-								console.error('MathJax rendering error:', err);
-							});
+						// Wait for MathJax to be ready, then render
+						const renderMath = () => {
+							if (window.MathJax && window.MathJax.typesetPromise) {
+								MathJax.typesetPromise([document.getElementById('markdown-content')]).then(() => {
+									console.log('MathJax rendering complete');
+								}).catch((err) => {
+									console.error('MathJax rendering error:', err);
+								});
+							} else if (window.MathJax && window.MathJax.Hub) {
+								// Fallback for older MathJax versions
+								MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('markdown-content')]);
+							}
+						};
+						
+						// Try rendering immediately, or wait for MathJax to load
+						if (window.MathJax && window.MathJax.startup) {
+							renderMath();
+						} else {
+							// Wait a bit for MathJax to initialize
+							setTimeout(renderMath, 100);
 						}
 					})
 					.catch(error => {
 						console.error('Error loading markdown:', error);
+						console.error('Failed to fetch:', mdFile);
 						document.getElementById('markdown-content').innerHTML = 
-							'<p>Error loading blog post. <a href="index.html">Return to blog</a></p>';
+							'<p>Error loading blog post: ' + error.message + '. <a href="index.html">Return to blog</a></p>';
 					});
+			}
+			
+			// Start loading when DOM is ready
+			console.log('Script loaded, readyState:', document.readyState);
+			if (document.readyState === 'loading') {
+				console.log('Adding DOMContentLoaded listener');
+				document.addEventListener('DOMContentLoaded', function() {
+					console.log('DOMContentLoaded fired');
+					loadMarkdown();
+				});
 			} else {
-				document.getElementById('markdown-content').innerHTML = 
-					'<p>No blog post specified. <a href="index.html">Return to blog</a></p>';
+				// DOM is already ready
+				console.log('DOM already ready, calling loadMarkdown');
+				// Use setTimeout to ensure all scripts are loaded
+				setTimeout(loadMarkdown, 100);
 			}
 		</script>
 

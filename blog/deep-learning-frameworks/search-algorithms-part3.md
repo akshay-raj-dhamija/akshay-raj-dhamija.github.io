@@ -1,4 +1,9 @@
-# From MDPs to Q-Learning: A Reinforcement Learning Journey
+---
+layout: post
+title: "From MDPs to Q-Learning: A Reinforcement Learning Journey"
+permalink: /blog/deep-learning-frameworks/search-algorithms-part3.html
+---
+
 ## Part 3 of 3: AI Search Fundamentals Series
 
 **Author:** Akshay Raj Dhamija  
@@ -9,13 +14,13 @@
 ---
 
 > **📚 Series Navigation:**  
-> [← Part 1: Mastering Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)  
-> [← Part 2: Multi-Agent Search & Game Theory](post.html?md=deep-learning-frameworks/search-algorithms-part2.md)  
+> [← Part 1: Mastering Search Algorithms](search-algorithms-part1.html)  
+> [← Part 2: Multi-Agent Search & Game Theory](search-algorithms-part2.html)  
 > **Part 3: MDPs to Q-Learning** (Current)
 
 ---
 
-Welcome to the final part of our AI Search Fundamentals series! In [Part 1](post.html?md=deep-learning-frameworks/search-algorithms-part1.md), we learned search algorithms like A-Star. In [Part 2](post.html?md=deep-learning-frameworks/search-algorithms-part2.md), we handled adversaries with MiniMax. Now we tackle the ultimate challenge: **learning optimal behavior when we don't know the rules of the game**!
+Welcome to the final part of our AI Search Fundamentals series! In [Part 1](search-algorithms-part1.html), we learned search algorithms like A-Star. In [Part 2](search-algorithms-part2.html), we handled adversaries with MiniMax. Now we tackle the ultimate challenge: **learning optimal behavior when we don't know the rules of the game**!
 
 **What you'll learn in this post:**
 - Markov Decision Processes (MDPs) for sequential decision making
@@ -45,7 +50,7 @@ Welcome to the final part of our AI Search Fundamentals series! In [Part 1](post
 
 ## 1. Markov Decision Processes
 
-As we saw in [Part 2](post.html?md=deep-learning-frameworks/search-algorithms-part2.md), for multi-agent search we had to look a few steps in the future to make decisions, which can be computationally expensive. **Markov Decision Processes (MDPs)** solve this by creating a **policy map** - a mapping from every state to the optimal action in that state.
+As we saw in [Part 2](search-algorithms-part2.html), for multi-agent search we had to look a few steps in the future to make decisions, which can be computationally expensive. **Markov Decision Processes (MDPs)** solve this by creating a **policy map** - a mapping from every state to the optimal action in that state.
 
 The goal here is to create a map of states to actions for a given problem so that during execution such a map can be referred to get the optimal action for a given state instantly!
 
@@ -323,12 +328,12 @@ Congratulations! You've completed the AI Search Fundamentals series. Let's recap
 
 ### The Complete Journey
 
-**[Part 1: Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)** 🔍
+**[Part 1: Search Algorithms](search-algorithms-part1.html)** 🔍
 - Mastered uninformed search (DFS, BFS, UCS)
 - Learned informed search with heuristics (Greedy, A-Star)
 - Found optimal paths in known environments
 
-**[Part 2: Multi-Agent Search](post.html?md=deep-learning-frameworks/search-algorithms-part2.md)** 🎮
+**[Part 2: Multi-Agent Search](search-algorithms-part2.html)** 🎮
 - Handled adversaries with MiniMax and Alpha-Beta pruning
 - Dealt with uncertainty using ExpectiMax
 - Played perfect games with imperfect information
@@ -394,7 +399,7 @@ If you found this series helpful, please share it with others who might benefit.
 
 ---
 
-**[← Part 2: Multi-Agent Search](post.html?md=deep-learning-frameworks/search-algorithms-part2.md)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Back to Blog](../index.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[← Part 1: Search Algorithms](post.html?md=deep-learning-frameworks/search-algorithms-part1.md)**
+**[← Part 2: Multi-Agent Search](search-algorithms-part2.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[Back to Blog](../index.html)** &nbsp;&nbsp;|&nbsp;&nbsp; **[← Part 1: Search Algorithms](search-algorithms-part1.html)**
 
-**[📄 Complete Guide (All Parts Combined)](post.html?md=deep-learning-frameworks/search-trees-to-reinforcement-learning.md)**
+**[📄 Complete Guide (All Parts Combined)](search-trees-to-reinforcement-learning.html)**
 

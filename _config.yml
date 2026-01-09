@@ -1,0 +1,18 @@
+title: Akshay Raj Dhamija
+description: Computer Vision and Deep Learning Researcher
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    preview: AsciiMath
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-relative-links
+include:
+  - blog
+exclude:
+  - README.md
+  - README.txt
+  - LICENSE.txt

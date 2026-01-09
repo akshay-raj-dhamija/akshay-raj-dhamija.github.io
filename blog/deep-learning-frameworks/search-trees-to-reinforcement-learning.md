@@ -1,4 +1,8 @@
-# Search Trees to Reinforcement Learning via MDP
+---
+layout: post
+title: "Search Trees to Reinforcement Learning via MDP"
+permalink: /blog/deep-learning-frameworks/search-trees-to-reinforcement-learning.html
+---
 
 **Author:** Akshay Raj Dhamija  
 **Date:** October 4, 2025  
@@ -87,7 +91,7 @@ In depth first search we pick one of the various possible successors of a tree n
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/DFS.png" alt="Depth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/DFS.png" alt="Depth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 1:</strong> Depth First Search (DFS) - The brightness of the red color indicates how early during the search that the pac-man visited this position. The pac-man started at the top right state and the food pellet was at the bottom left.</p>
 </div>
 
@@ -106,7 +110,7 @@ A counterpart of depth first search can be the breadth first search (BFS). While
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/BFS.png" alt="Breadth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/BFS.png" alt="Breadth First Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 2:</strong> Breadth First Search (BFS) - BFS simultaneously expands each node and its siblings, resulting in a different exploration pattern compared to DFS.</p>
 </div>
 
@@ -155,7 +159,7 @@ If UCS is applied to a problem where the transition cost between two states is c
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/UCS.png" alt="Uniform Cost Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/UCS.png" alt="Uniform Cost Search on Pac-Man" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 3:</strong> Uniform Cost Search (UCS) - UCS is cost-sensitive and provides the optimal path. In cases with uniform transition costs, it behaves identically to BFS.</p>
 </div>
 
@@ -213,11 +217,11 @@ $$f(n) = h(n)$$
 <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">Greedy Search with Euclidean Distance</h4>
-    <img src="../Images/GD_Euc.png" alt="Greedy Search L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="Images/GD_Euc.png" alt="Greedy Search L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">Greedy Search with Manhattan Distance</h4>
-    <img src="../Images/GS_MHD.png" alt="Greedy Search L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="Images/GS_MHD.png" alt="Greedy Search L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
 </div>
 
@@ -242,11 +246,11 @@ $$f(n) = g(n) + h(n)$$
 <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">A-Star with Euclidean Distance</h4>
-    <img src="../Images/Astar_Euc.png" alt="A-Star L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="Images/Astar_Euc.png" alt="A-Star L2" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
   <div style="flex: 1; min-width: 300px; text-align: center;">
     <h4 style="margin-bottom: 10px;">A-Star with Manhattan Distance</h4>
-    <img src="../Images/Astar_MHD.png" alt="A-Star L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+    <img src="Images/Astar_MHD.png" alt="A-Star L1" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   </div>
 </div>
 
@@ -310,12 +314,12 @@ MiniMax search takes this observation into account and calculates the utility of
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/MiniMax_Tree_Exp.png" alt="MiniMax Tree Example" style="max-width: 80%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 6a:</strong> MiniMax tree example showing how values propagate from leaf nodes through alternating min and max layers to determine the optimal action.</p>
 </div>
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/MiniMax.png" alt="MiniMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 6b:</strong> MiniMax search algorithm pseudocode. The algorithm alternates between maximization (for allies) and minimization (for adversaries) to find the optimal action for the primary agent.</p>
 </div>
 
@@ -346,7 +350,7 @@ Alpha-Beta search applies a technique of meta-reasoning to decide which computat
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/Alpha_Beta.png" alt="Alpha-Beta Pruning" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 7:</strong> Alpha-Beta search explanation. Alpha-Beta search provides the same result as MiniMax but explores fewer nodes by pruning unnecessary branches. Alpha (α) is set by the maximization function and used by the minimization function to decide when to stop traversing the sub-tree.</p>
 </div>
 
@@ -492,7 +496,7 @@ In model based learning we first try and learn the model of the world, which mea
 ---
 
 <div style="text-align: center; margin: 30px 0;">
-  <img src="../Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
+  <img src="Images/ExpectiMax.png" alt="ExpectiMax Algorithm" style="max-width: 90%; height: auto; border: 1px solid #ddd; border-radius: 4px; padding: 5px;">
   <p style="margin-top: 10px; font-style: italic; color: #666;"><strong>Figure 8:</strong> ExpectiMax search algorithm. Instead of assuming adversaries will always take the worst action (as in MiniMax), ExpectiMax computes expected values based on probabilities of different actions.</p>
 </div>
 

@@ -1,4 +1,8 @@
-# Navigating the PhD Journey
+---
+layout: post
+title: "Navigating the PhD Journey"
+permalink: /blog/life-skills/navigating-phd-journey.html
+---
 
 **January 10, 2025** | *Life Skills & Career*
 
@@ -10,7 +14,7 @@
 
 Completing a PhD is often described as a marathon, not a sprint. After finishing my PhD in Computer Science at the University of Colorado Colorado Springs (2018-2022), I wanted to share some reflections and practical advice that I wish I had known at the beginning of my journey.
 
-![UCCS](../Images/UCCS.png)
+![UCCS](Images/UCCS.png)
 
 ## The Early Days: Finding Your Footing
 
