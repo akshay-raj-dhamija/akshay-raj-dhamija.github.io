@@ -81,8 +81,13 @@
 				.each(function() {
 
 					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
+						id = $this.attr('href');
+
+					// External link or no href? Bail (skip links that don't start with #)
+						if (!id || id.charAt(0) != '#')
+							return;
+
+					var $section = $(id);
 
 					// No section for this link? Bail.
 						if ($section.length < 1)

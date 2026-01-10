@@ -1,5 +1,13 @@
 /* Custom CSS to reduce sidebar width and font sizes */
 
+/* Override base titleBar display rule - show on mobile, hide on desktop */
+/* Only hide on desktop screens (>1024px), mobile media query below will show it */
+@media screen and (min-width: 1025px) {
+	#titleBar {
+		display: none !important; /* Hidden on desktop */
+	}
+}
+
 /* Set sidebar width to fit all icons in one line (increased from 16em to 20em) */
 #header {
 	width: 20em !important;
@@ -91,15 +99,139 @@ body, input, select, textarea {
 	#wrapper {
 		padding-left: 20em !important;
 	}
+	
 }
 
 /* Adjust for mobile/tablet */
 @media screen and (max-width: 1024px) {
+	/* Header - hidden by default on mobile */
 	#header {
 		width: 23em !important;
 		-moz-transform: translateX(-23em) !important;
 		-webkit-transform: translateX(-23em) !important;
 		-ms-transform: translateX(-23em) !important;
 		transform: translateX(-23em) !important;
+	}
+	
+	/* When header is visible (menu opened), show it */
+	body.header-visible #header {
+		-moz-transform: translateX(0) !important;
+		-webkit-transform: translateX(0) !important;
+		-ms-transform: translateX(0) !important;
+		transform: translateX(0) !important;
+	}
+	
+	/* Reset wrapper padding for mobile - sidebar is hidden */
+	#wrapper {
+		padding-left: 0 !important;
+		padding: 44px 0 1px 0 !important;
+		-moz-backface-visibility: hidden !important;
+		-webkit-backface-visibility: hidden !important;
+		-ms-backface-visibility: hidden !important;
+		backface-visibility: hidden !important;
+		-moz-transition: -moz-transform 0.5s ease !important;
+		-webkit-transition: -webkit-transform 0.5s ease !important;
+		-ms-transition: -ms-transform 0.5s ease !important;
+		transition: transform 0.5s ease !important;
+	}
+	
+	/* When header is visible, slide wrapper to show sidebar */
+	body.header-visible #wrapper {
+		-moz-transform: translateX(23em) !important;
+		-webkit-transform: translateX(23em) !important;
+		-ms-transform: translateX(23em) !important;
+		transform: translateX(23em) !important;
+	}
+	
+	/* Reset font size for mobile */
+	body, input, select, textarea {
+		font-size: 12pt !important;
+	}
+	
+	/* Ensure titleBar works correctly and is visible on mobile */
+	#titleBar {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		z-index: 10001 !important;
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 44px !important;
+		background: #222 !important;
+		color: #fff !important;
+	}
+	
+	/* Fix titleBar title to not overlap with toggle button */
+	#titleBar .title {
+		padding-left: 6em !important; /* Space for toggle button (6em wide) */
+		padding-right: 1em !important;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	
+	/* Ensure toggle button is visible */
+	#titleBar .toggle {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 6em !important;
+		height: 4em !important;
+		z-index: 10002 !important;
+		cursor: pointer !important;
+	}
+	
+	/* Ensure toggle button icon (hamburger) is visible */
+	#titleBar .toggle:before {
+		display: block !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+		content: '\f0c9' !important; /* Font Awesome hamburger icon */
+		background: #4acaa8 !important;
+		color: #ffffff !important;
+		font-family: 'Font Awesome 5 Free' !important;
+		font-weight: 900 !important;
+		font-size: 18px !important;
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 64px !important;
+		height: 44px !important;
+		line-height: 44px !important;
+		text-align: center !important;
+		z-index: 10003 !important;
+		-moz-osx-font-smoothing: grayscale !important;
+		-webkit-font-smoothing: antialiased !important;
+		text-rendering: auto !important;
+	}
+	
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 736px) {
+	body, input, select, textarea {
+		font-size: 12pt !important;
+	}
+	
+	/* When header is visible on small screens, use smaller translation */
+	body.header-visible #wrapper,
+	body.header-visible #titleBar {
+		-moz-transform: translateX(17em) !important;
+		-webkit-transform: translateX(17em) !important;
+		-ms-transform: translateX(17em) !important;
+		transform: translateX(17em) !important;
+	}
+	
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+	body, input, select, textarea {
+		font-size: 12pt !important;
 	}
 }

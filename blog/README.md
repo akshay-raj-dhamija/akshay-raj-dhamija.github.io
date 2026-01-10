@@ -1,13 +1,12 @@
 # Blog Directory Structure
 
-This directory contains the blog section of the website using **Markdown** for easy content creation.
+This directory contains the blog section of the website using **Markdown** for easy content creation with **Jekyll**.
 
 ## Structure
 
 ```
 blog/
 ├── index.html                    # Main blog landing page
-├── post.html                     # Markdown renderer template
 ├── Images/                       # Blog-specific images
 │   ├── DFS.png
 │   ├── BFS.png
@@ -40,7 +39,7 @@ Lessons learned, career advice, and thoughts on personal development.
 
 ## Writing Blog Posts in Markdown
 
-Blog posts are now written in **Markdown** (`.md` files) for easier maintenance. The `post.html` template automatically converts Markdown to HTML using [Marked.js](https://marked.js.org/) and adds syntax highlighting with [Highlight.js](https://highlightjs.org/).
+Blog posts are written in **Markdown** (`.md` files) and automatically converted to HTML by Jekyll using the `post` layout (`_layouts/post.html`).
 
 ### Creating a New Blog Post
 
@@ -49,16 +48,25 @@ Blog posts are now written in **Markdown** (`.md` files) for easier maintenance.
    touch blog/computer-vision/my-new-post.md
    ```
 
-2. **Write your content** using standard Markdown syntax (see below for features)
+2. **Add Jekyll front matter** at the top of the file:
+   ```markdown
+   ---
+   layout: post
+   title: "Your Post Title"
+   permalink: /blog/computer-vision/my-new-post.html
+   ---
+   ```
 
-3. **Update `blog/index.html`** to add a link to your post:
+3. **Write your content** using standard Markdown syntax (see below for features)
+
+4. **Update `blog/index.html`** to add a link to your post:
    ```html
    <article>
-       <a href="post.html?md=computer-vision/my-new-post.md" class="image">
+       <a href="computer-vision/my-new-post.html" class="image">
            <img src="Images/your-image.png" alt="" />
        </a>
        <div class="inner">
-           <h4><a href="post.html?md=computer-vision/my-new-post.md">Your Post Title</a></h4>
+           <h4><a href="computer-vision/my-new-post.html">Your Post Title</a></h4>
            <p>Brief description of your post.</p>
            <p><em>Date</em></p>
        </div>
@@ -71,7 +79,7 @@ Blog posts are now written in **Markdown** (`.md` files) for easier maintenance.
 - **Bold:** `**bold text**`
 - **Italic:** `*italic text*`
 - **Links:** `[text](url)`
-- **Images:** `![alt text](image-path)`
+- **Images:** `![alt text](../Images/image.png)` (use `../Images/` from subdirectories)
 - **Code blocks with syntax highlighting:**
   ````markdown
   ```python
@@ -81,8 +89,9 @@ Blog posts are now written in **Markdown** (`.md` files) for easier maintenance.
   ````
 - **Inline code:** `` `code` ``
 - **LaTeX Math:**
-  - Inline: `$E = mc^2$`
-  - Display: `$$\sum_{i=1}^{n} x_i$$`
+  - Inline: `$\(E = mc^2\)$` (use `$\(...\)$` format)
+  - Display: `$$E = mc^2$$`
+  - Note: Escape asterisks in math: `$\(C^\*\)$` instead of `$\(C^*\)$`
 - **Lists:** 
   - Unordered: `- item`
   - Ordered: `1. item`
@@ -98,12 +107,10 @@ Blog posts are now written in **Markdown** (`.md` files) for easier maintenance.
 ### Example Markdown Post Structure
 
 ```markdown
-# Your Post Title
-
-**Date** | *Category*
-
-[← Back to Blog](../index.html)
-
+---
+layout: post
+title: "Your Post Title"
+permalink: /blog/computer-vision/your-post.html
 ---
 
 ## Introduction
@@ -120,32 +127,31 @@ def example():
 ## Conclusion
 
 Your conclusion here...
-
----
-
-[← Back to Blog](../index.html)
 ```
 
 ## Technical Details
 
-- **Markdown Parser:** [Marked.js](https://marked.js.org/) v11.1.1
-- **Syntax Highlighting:** [Highlight.js](https://highlightjs.org/) v11.9.0 with Monokai theme
+- **Markdown Processor:** [kramdown](https://kramdown.gettalong.org/) (via Jekyll)
+- **Syntax Highlighting:** [Rouge](https://github.com/rouge-ruby/rouge) (via Jekyll)
 - **LaTeX Rendering:** [MathJax](https://www.mathjax.org/) v3
-- **Rendering:** Client-side JavaScript (no build step required)
-- **Images:** Reference from `../Images/` relative to the blog subdirectory (e.g., `blog/deep-learning-frameworks/`) or `Images/` relative to the blog directory
+- **Rendering:** Server-side via Jekyll (build-time conversion)
+- **Layout:** `_layouts/post.html` (includes sidebar, navigation, and styling)
+- **Images:** Reference from `../Images/` relative to the blog subdirectory (e.g., `blog/deep-learning-frameworks/`)
 
-## Benefits of Markdown
+## Benefits of Markdown + Jekyll
 
 - ✅ **Easy to write:** Simple, readable syntax
 - ✅ **Version control friendly:** Plain text files work great with Git
 - ✅ **Code highlighting:** Automatic syntax highlighting for code blocks
 - ✅ **No HTML knowledge needed:** Focus on content, not markup
-- ✅ **Portable:** Can be converted to other formats if needed
+- ✅ **Fast loading:** Pre-rendered HTML (better SEO and performance)
+- ✅ **Automatic builds:** GitHub Pages builds from Markdown automatically
 
 ## Notes
 
-- Blog-specific images should be placed in `blog/Images/` and referenced as `../Images/` from markdown files in subdirectories (e.g., `blog/deep-learning-frameworks/`) or `Images/` from `blog/index.html`
-- The `post.html` template handles all styling and rendering automatically
+- Blog-specific images should be placed in `blog/Images/` and referenced as `../Images/` from markdown files in subdirectories
+- The `_layouts/post.html` template handles all styling and rendering automatically
 - Syntax highlighting supports 100+ languages including Python, JavaScript, C++, etc.
 - All blog posts are written in Markdown for easy maintenance and version control
-
+- Math equations use `$\(...\)$` format for inline math and `$$...$$` for display math
+- Remember to escape asterisks in math expressions: `C^\*` instead of `C^*`
