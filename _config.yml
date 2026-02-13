@@ -10,7 +10,7 @@ kramdown:
     preview: AsciiMath
   input: GFM
   hard_wrap: false
-  syntax_highlighter: rouge
+  syntax_highlighter: null   # use client-side highlight.js in post layout for styling
 plugins:
   - jekyll-relative-links
 include:
