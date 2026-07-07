@@ -61,7 +61,7 @@ Let's understand the building blocks of MDPs:
 1. **Set of states $\(S\)$**: All possible situations the agent can be in
 2. **Start state $\(s_0\)$**: Where the agent begins
 3. **Set of actions $\(A\)$**: All possible actions available
-4. **Transitions $\(P(s'|s, a)\)$ or $\(T(s, a, s')\)$**: Since the actions in an MDP are **stochastic**, the result of a given action at a given state is not always the same. The probability that a given combination of state $\(s\)$ and action $\(a\)$ will yield state $\(s'\)$ is given by $\(P(s'|s, a)\)$
+4. **Transitions $\(P(s' \mid s, a)\)$ or $\(T(s, a, s')\)$**: Since the actions in an MDP are **stochastic**, the result of a given action at a given state is not always the same. The probability that a given combination of state $\(s\)$ and action $\(a\)$ will yield state $\(s'\)$ is given by $\(P(s' \mid s, a)\)$
 
 5. **Q State**: Q state can be best understood as an abstraction of the transition probability. Think of it as: the primary agent has committed to an action $\(a\)$ but the outcome is not yet determined - it depends on the stochastic transition function.
 
